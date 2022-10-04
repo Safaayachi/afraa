@@ -1,0 +1,124 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("fonts/icomoon.eot?on5qvm");
+  src: url("fonts/icomoon.eot?on5qvm#iefix") format("embedded-opentype"),
+    url("fonts/icomoon.ttf?on5qvm") format("truetype"),
+    url("fonts/icomoon.woff?on5qvm") format("woff"),
+    url("fonts/icomoon.svg?on5qvm#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow_drop_down_black_24dp-2:before {
+  content: "\e918";
+}
+.icon-close_black_24dp:before {
+  content: "\e919";
+}
+.icon-filter_alt_black_24dp:before {
+  content: "\e91a";
+}
+.icon-filter_list_black_24dp:before {
+  content: "\e91b";
+}
+.icon-search_black_24dp-4:before {
+  content: "\e91c";
+}
+.icon-visibility_black_24dp:before {
+  content: "\e91d";
+}
+.icon-ac_unit_black_24dp-2:before {
+  content: "\e900";
+}
+.icon-add_black_24dp-2:before {
+  content: "\e901";
+}
+.icon-balcony_black_24dp:before {
+  content: "\e902";
+}
+.icon-calendar_today_black_24dp-3:before {
+  content: "\e903";
+}
+.icon-call_black_24dp-3:before {
+  content: "\e904";
+}
+.icon-desktop_windows_black_24dp-1:before {
+  content: "\e905";
+}
+.icon-fullscreen_black_24dp:before {
+  content: "\e906";
+}
+.icon-Group-48:before {
+  content: "\e907";
+}
+.icon-hot_tub_black_24dp-1:before {
+  content: "\e908";
+}
+.icon-iconmonstr-snapchat-1:before {
+  content: "\e909";
+}
+.icon-icons8-facebook:before {
+  content: "\e90a";
+}
+.icon-icons8-twitter:before {
+  content: "\e90b";
+}
+.icon-keyboard_arrow_down_black_-1:before {
+  content: "\e90c";
+}
+.icon-keyboard_arrow_down_black_24dp:before {
+  content: "\e90d";
+}
+.icon-keyboard_backspace_black_24dp:before {
+  content: "\e90e";
+}
+.icon-king_bed_black_24dp-1:before {
+  content: "\e90f";
+}
+.icon-local_cafe_black_24dp-1:before {
+  content: "\e910";
+}
+.icon-local_cafe_black_24dp:before {
+  content: "\e911";
+}
+.icon-remove_black_24dp:before {
+  content: "\e912";
+}
+.icon-shower_black_24dp-1:before {
+  content: "\e913";
+}
+.icon-supervisor_account_black_24dp:before {
+  content: "\e914";
+}
+.icon-volume_off_black_24dp-1:before {
+  content: "\e915";
+}
+.icon-wifi_black_24dp-3:before {
+  content: "\e916";
+}
+.icon-menu_black_24dp-6:before {
+  content: "\e917";
+}
+.icon-perm_identity_black_24dp:before {
+  content: "\e976";
+}
+.icon-local_parking_black_24dp:before {
+  content: "\e94e";
+}
