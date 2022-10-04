@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import "../public/icons/style.css";
-body {
-    @apply font-cairo;
-}
+@import "base/fonts";
+@import "base/normalize";
+@import "base/reset";
+@import "base/typography";

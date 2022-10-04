@@ -10,9 +10,9 @@ module.exports = {
         cairo: ["Cairo", "sans-serif"],
       },
       colors: {
-        primary: "#b38e55",
+        primary: "#0681bd",
         basic: "#f7f7f7",
-        secondary: "#132d46",
+        secondary: "#0e2f50",
         shade: "#e7e9ec",
         success: "#00800a",
         warning: "#f6b12d",
