@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        cairo: ["Cairo", "sans-serif"],
+        almarai: ["almarai", "sans-serif"],
       },
       colors: {
         primary: "#0681bd",

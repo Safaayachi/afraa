@@ -16,7 +16,7 @@ export default function Home() {
                 objectFit="cover"
               ></Image>
               <div className="absolute z-10 h-full w-full bg-black opacity-50"></div>
-              <div className="absolute z-10 h-full w-full p-6 py-20 lg:px-28">
+              <div className="absolute z-10 h-full w-full p-6 py-32 lg:px-28">
                 <div className="relative flex h-full w-full flex-col gap-10 lg:gap-0">
                   <div className="relative flex h-2/6 w-full items-end justify-end">
                     <div className="flex flex-col gap-10 lg:w-1/2 ">
