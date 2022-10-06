@@ -27,7 +27,7 @@ const Header = () => {
         </nav>
         <nav className="relative hidden h-20 w-full flex-row justify-between lg:flex ">
           <div className="relative flex h-full  w-56 items-center justify-center border-r border-solid border-shade p-4 px-6">
-            <div className="flex h-full w-full items-center justify-center bg-primary text-sm font-bold text-tint ">
+            <div className="flex h-full w-full items-center justify-center bg-primary text-md font-bold text-tint ">
               تسجيل الدخول
             </div>
           </div>
@@ -35,19 +35,19 @@ const Header = () => {
             <div className="relative flex h-full w-5/12 justify-around">
               <div className="flex h-full flex-row gap-12">
                 <Link passHref href={"/"}>
-                  <div className="flex h-full  cursor-pointer items-center justify-center text-sm font-bold text-secondary">
+                  <div className="flex h-full  cursor-pointer items-center justify-center text-md font-bold text-secondary">
                     اتصل بنا
                   </div>
                 </Link>
 
                 <Link passHref href={"/"}>
-                  <div className="flex h-full  cursor-pointer items-center justify-center text-sm font-bold text-secondary">
+                  <div className="flex h-full  cursor-pointer items-center justify-center text-md font-bold text-secondary">
                     الخصوصية
                   </div>
                 </Link>
 
                 <Link passHref href={"/"}>
-                  <div className="flex h-full  cursor-pointer items-center justify-center text-sm font-bold text-secondary">
+                  <div className="flex h-full  cursor-pointer items-center justify-center text-md font-bold text-secondary">
                     الشروط والأحكام
                   </div>
                 </Link>
@@ -67,19 +67,19 @@ const Header = () => {
             <div className="relative flex h-full w-5/12 flex-row justify-around">
               <div className="flex h-full flex-row gap-12">
                 <Link passHref href={"/"}>
-                  <div className="flex h-full  cursor-pointer items-center justify-center text-sm font-bold text-secondary">
+                  <div className="flex h-full  cursor-pointer items-center justify-center text-md font-bold text-secondary">
                     تقييم
                   </div>
                 </Link>
 
                 <Link passHref href={"/"}>
-                  <div className="flex h-full  cursor-pointer items-center justify-center text-sm font-bold text-secondary">
+                  <div className="flex h-full  cursor-pointer items-center justify-center text-md font-bold text-secondary">
                     حجوزاتى
                   </div>
                 </Link>
 
                 <Link passHref href={"/"}>
-                  <div className="flex h-full  cursor-pointer items-center justify-center text-sm font-bold text-secondary">
+                  <div className="flex h-full  cursor-pointer items-center justify-center text-md font-bold text-secondary">
                     الغرف و الأجنحة
                   </div>
                 </Link>
