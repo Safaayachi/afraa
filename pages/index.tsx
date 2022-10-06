@@ -19,11 +19,11 @@ export default function Home() {
               <div className="absolute z-10 h-full w-full p-6 py-32 lg:px-28">
                 <div className="relative flex h-full w-full flex-col gap-10 lg:gap-0">
                   <div className="relative flex h-2/6 w-full items-end justify-end">
-                    <div className="flex flex-col gap-10 lg:w-1/2 ">
-                      <div className="text-end text-5xl font-bold text-tint lg:text-7xl  ">
+                    <div className="flex flex-col gap-10 w-full lg:w-1/2 ">
+                      <div className="text-end text-5xl font-extrabold text-tint md:text-6xl lg:text-8xl  ">
                         مرحبا بكم في{" "}
                       </div>
-                      <div className="text-end text-5xl font-bold text-tint  lg:text-7xl ">
+                      <div className="text-end text-5xl font-extrabold text-tint md:text-6xl lg:text-8xl ">
                         فندق عفراء العزيزية
                       </div>
                     </div>
