@@ -5,7 +5,7 @@ import Image from "next/image";
 const Header = () => {
   return (
     <Fragment>
-      <header className={"w-full border-b  border-solid border-shade bg-tint"}>
+      <header className={"w-full fixed border-b z-20 border-solid border-shade bg-tint"}>
         <nav className="relative flex  h-20 w-full lg:hidden">
           <div className="flex w-1/6 cursor-pointer items-center justify-center bg-primary">
             <i className="icon-perm_identity_black_24dp font-md text-3xl text-tint"></i>
