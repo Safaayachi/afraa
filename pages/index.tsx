@@ -1,11 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
+import Layout from "../components/Layout";
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
-      <h1 className=" text-2xl font-bold text-primary">فندق لصفوة البرج الاول</h1>
-      
-    </div>
+    <>
+      <Layout>
+        <section className="w-full h-96 pt-20"></section>
+        <section className="w-full h-96 pt-20"></section>
+        <section className="w-full h-96 pt-20"></section>
+      </Layout>
+    </>
   );
 }
