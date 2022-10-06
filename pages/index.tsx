@@ -16,20 +16,20 @@ export default function Home() {
                 objectFit="cover"
               ></Image>
               <div className="absolute z-10 h-full w-full bg-black opacity-50"></div>
-              <div className="absolute z-10 h-full w-full p-6 py-20 lg:px-16">
-                <div className="relative flex h-full w-full flex-col gap-10">
-                  <div className="relative flex h-2/6 w-full justify-end">
+              <div className="absolute z-10 h-full w-full p-6 py-20 lg:px-28">
+                <div className="relative flex h-full w-full flex-col gap-10 lg:gap-0">
+                  <div className="relative flex h-2/6 w-full items-end justify-end">
                     <div className="flex flex-col gap-10 lg:w-1/2 ">
-                      <div className="text-end text-5xl font-bold text-tint  2xl:text-7xl">
+                      <div className="text-end text-5xl font-bold text-tint lg:text-7xl  2xl:text-8xl">
                         مرحبا بكم في{" "}
                       </div>
-                      <div className="text-end text-5xl font-bold text-tint  2xl:text-7xl">
+                      <div className="text-end text-5xl font-bold text-tint  lg:text-7xl 2xl:text-8xl">
                         فندق عفراء العزيزية
                       </div>
                     </div>
                   </div>
-                  <div className="relative flex h-4/6 justify-end items-center">
-                    <div className="w-full h-full bg-tint lg:w-5/6 lg:h-1/4"></div>
+                  <div className="relative flex h-4/6 items-center justify-end">
+                    <div className="h-full w-full bg-tint lg:h-1/4 lg:w-5/6"></div>
                   </div>
                 </div>
               </div>
