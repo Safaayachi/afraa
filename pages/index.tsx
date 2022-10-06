@@ -20,10 +20,10 @@ export default function Home() {
                 <div className="relative flex h-full w-full flex-col gap-10 lg:gap-0">
                   <div className="relative flex h-2/6 w-full items-end justify-end">
                     <div className="flex flex-col gap-10 w-full lg:w-1/2 ">
-                      <div className="text-end text-5xl font-extrabold text-tint md:text-6xl lg:text-8xl  ">
+                      <div className="text-end text-5xl font-extrabold text-tint md:text-6xl   ">
                         مرحبا بكم في{" "}
                       </div>
-                      <div className="text-end text-5xl font-extrabold text-tint md:text-6xl lg:text-8xl ">
+                      <div className="text-end text-5xl font-extrabold text-tint md:text-6xl  ">
                         فندق عفراء العزيزية
                       </div>
                     </div>
