@@ -4,10 +4,10 @@ import Image from "next/image";
 const Services = () => {
   const [slug, setSlug] = useState("");
   return (
-    <div className="relative h-[80rem] w-full p-32 lg:h-[80rem] ">
+    <div className="relative h-[80rem] w-full px-32 lg:h-[80rem] ">
       <div className="relative flex h-full w-full flex-col">
         <div className="relative flex h-1/6 w-full justify-end ">
-          <div className="flex items-center text-7xl font-black text-dark lg:text-8xl">
+          <div className="flex items-center text-5xl font-black text-dark lg:text-6xl">
             خدماتنا{" "}
           </div>
         </div>
@@ -43,10 +43,10 @@ const Services = () => {
             >
               {slug == "restaurants" ? (
                 <>
-                  <div className="text-5xl font-bold text-dark">
+                  <div className="text-4xl font-bold text-dark">
                     مطاعم و مقاهي
                   </div>
-                  <div className="text-end text-3xl  text-dark">
+                  <div className="text-end text-2xl  text-dark">
                     عيش التجربة و استمتع بالخيرات الكثيرة المتاحة من خلال مطاعم
                     ومقاهي عفراء التى تقدم لكم أفضل المؤكولات و المشروبات
                     المميزة
@@ -54,8 +54,8 @@ const Services = () => {
                 </>
               ) : (
                 <>
-                  <div className="text-5xl font-bold ">مطاعم و مقاهي</div>
-                  <div className="text-end text-3xl ">
+                  <div className="text-4xl font-bold ">مطاعم و مقاهي</div>
+                  <div className="text-end text-2xl ">
                     عيش التجربة و استمتع بالخيرات الكثيرة المتاحة من خلال مطاعم
                     ومقاهي عفراء التى تقدم لكم أفضل المؤكولات و المشروبات
                     المميزة
@@ -69,18 +69,18 @@ const Services = () => {
             >
               {slug == "massage" ? (
                 <>
-                  <div className="text-5xl font-bold text-dark ">
+                  <div className="text-4xl font-bold text-dark ">
                     كرسي المساج
                   </div>
-                  <div className="text-end text-3xl text-dark ">
+                  <div className="text-end text-2xl text-dark ">
                     يوفر لكم فندق عفراء كرسي المساج لتوفير المزيد من الراحة و
                     الاسترخاء
                   </div>
                 </>
               ) : (
                 <>
-                  <div className="text-5xl font-bold ">كرسي المساج</div>
-                  <div className="text-end text-3xl ">
+                  <div className="text-4xl font-bold ">كرسي المساج</div>
+                  <div className="text-end text-2xl ">
                     يوفر لكم فندق عفراء كرسي المساج لتوفير المزيد من الراحة و
                     الاسترخاء
                   </div>
@@ -93,18 +93,18 @@ const Services = () => {
             >
               {slug == "kidsPark" ? (
                 <>
-                  <div className="text-5xl font-bold text-dark">
+                  <div className="text-4xl font-bold text-dark">
                     نادي للاطفال
                   </div>
-                  <div className="text-end text-3xl text-dark ">
+                  <div className="text-end text-2xl text-dark ">
                     يوفر لكم فندق عفراء صالة ترفيهية للأطفال لمزيد من الرفاهية
                     لأطفالكم
                   </div>
                 </>
               ) : (
                 <>
-                  <div className="text-5xl font-bold ">نادي للاطفال</div>
-                  <div className="text-end text-3xl ">
+                  <div className="text-4xl font-bold ">نادي للاطفال</div>
+                  <div className="text-end text-2xl ">
                     يوفر لكم فندق عفراء صالة ترفيهية للأطفال لمزيد من الرفاهية
                     لأطفالكم
                   </div>
