@@ -41,31 +41,75 @@ const Services = () => {
               className="relative flex h-1/3 w-full cursor-pointer flex-col items-end gap-10 text-darkTint hover:text-dark"
               onClick={() => setSlug("restaurants")}
             >
-              <div className="text-5xl font-bold ">مطاعم و مقاهي</div>
-              <div className="text-end text-3xl ">
-                عيش التجربة و استمتع بالخيرات الكثيرة المتاحة من خلال مطاعم
-                ومقاهي عفراء التى تقدم لكم أفضل المؤكولات و المشروبات المميزة
-              </div>
+              {slug == "restaurants" ? (
+                <>
+                  <div className="text-5xl font-bold text-dark">
+                    مطاعم و مقاهي
+                  </div>
+                  <div className="text-end text-3xl  text-dark">
+                    عيش التجربة و استمتع بالخيرات الكثيرة المتاحة من خلال مطاعم
+                    ومقاهي عفراء التى تقدم لكم أفضل المؤكولات و المشروبات
+                    المميزة
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="text-5xl font-bold ">مطاعم و مقاهي</div>
+                  <div className="text-end text-3xl ">
+                    عيش التجربة و استمتع بالخيرات الكثيرة المتاحة من خلال مطاعم
+                    ومقاهي عفراء التى تقدم لكم أفضل المؤكولات و المشروبات
+                    المميزة
+                  </div>
+                </>
+              )}
             </div>
             <div
               className="flex h-1/3 w-full cursor-pointer flex-col items-end gap-10 text-darkTint hover:text-dark "
               onClick={() => setSlug("massage")}
             >
-              <div className="text-5xl font-bold ">كرسي المساج</div>
-              <div className="text-end text-3xl ">
-                يوفر لكم فندق عفراء كرسي المساج لتوفير المزيد من الراحة و
-                الاسترخاء
-              </div>
+              {slug == "massage" ? (
+                <>
+                  <div className="text-5xl font-bold text-dark ">
+                    كرسي المساج
+                  </div>
+                  <div className="text-end text-3xl text-dark ">
+                    يوفر لكم فندق عفراء كرسي المساج لتوفير المزيد من الراحة و
+                    الاسترخاء
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="text-5xl font-bold ">كرسي المساج</div>
+                  <div className="text-end text-3xl ">
+                    يوفر لكم فندق عفراء كرسي المساج لتوفير المزيد من الراحة و
+                    الاسترخاء
+                  </div>
+                </>
+              )}
             </div>
             <div
               className="flex h-1/3 w-full cursor-pointer flex-col items-end gap-10 text-darkTint hover:text-dark"
               onClick={() => setSlug("kidsPark")}
             >
-              <div className="text-5xl font-bold ">نادي للاطفال</div>
-              <div className="text-end text-3xl ">
-                يوفر لكم فندق عفراء صالة ترفيهية للأطفال لمزيد من الرفاهية
-                لأطفالكم
-              </div>
+              {slug == "kidsPark" ? (
+                <>
+                  <div className="text-5xl font-bold text-dark">
+                    نادي للاطفال
+                  </div>
+                  <div className="text-end text-3xl text-dark ">
+                    يوفر لكم فندق عفراء صالة ترفيهية للأطفال لمزيد من الرفاهية
+                    لأطفالكم
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="text-5xl font-bold ">نادي للاطفال</div>
+                  <div className="text-end text-3xl ">
+                    يوفر لكم فندق عفراء صالة ترفيهية للأطفال لمزيد من الرفاهية
+                    لأطفالكم
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
