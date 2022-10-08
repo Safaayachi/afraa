@@ -18,7 +18,7 @@ export default function Home() {
                 objectFit="cover"
               ></Image>
               <div className="absolute z-10 h-full w-full bg-black opacity-50"></div>
-              <div className="absolute z-10 h-full w-full p-16 py-32 lg:px-28">
+              <div className="absolute z-10 h-full w-full p-32 py-32 lg:px-28">
                 <div className="relative flex h-full w-full flex-col gap-10 lg:gap-0">
                   <div className="relative flex h-2/6 w-full items-end justify-end">
                     <div className="flex w-full flex-col gap-2 lg:w-1/2 lg:gap-10 ">
@@ -41,7 +41,7 @@ export default function Home() {
           </div>
         </section>
         <section className="relative w-full">
-          <div className="relative flex w-full justify-end p-16">
+          <div className="relative flex w-full justify-end p-32">
             <div className="absolute inset-0 z-10 hidden h-full w-full items-center justify-start lg:flex">
               <div className="relative h-1/3 w-3/4 bg-tint p-16">
                 <div className="flex h-full w-full flex-col items-end gap-6 bg-white">
@@ -67,7 +67,7 @@ export default function Home() {
                 ></Image>
               </div>
 
-              <div className="relative h-1/2 w-full  py-16 lg:hidden">
+              <div className="relative h-1/2 w-full  py-32 lg:hidden">
                 <div className="flex h-full w-full flex-col items-end gap-6 bg-white">
                   <h1 className="text-end text-6xl font-bold text-secondary">
                     افضل الخدمات
@@ -89,7 +89,7 @@ export default function Home() {
               <div className="h-1/2 w-full bg-shade"></div>
               <div className="h-1/2 w-full bg-tint"></div>
             </div>
-            <div className="absolute inset-0 z-10 h-full w-full p-16">
+            <div className="absolute inset-0 z-10 h-full w-full p-32">
               <div className="relative flex h-full w-full flex-col">
                 <div className="flex h-1/6  w-full justify-end ">
                   <div className="flex items-center text-7xl font-black text-dark lg:text-8xl">
@@ -121,7 +121,7 @@ export default function Home() {
           </div>
         </section>
         <section>
-          <div className="relative h-[60rem] w-full py-16 lg:h-[60rem]">
+          <div className="relative h-[60rem] w-full py-32 lg:h-[60rem]">
             <div className="relative h-full w-full ">
               <Image
                 alt="afraa-reception"
@@ -130,16 +130,16 @@ export default function Home() {
                 objectFit="cover"
               ></Image>
               <div className="absolute z-10 h-full w-full bg-black opacity-30"></div>
-              <div className="absolute z-10 flex h-full w-full flex-col gap-6 items-center justify-center ">
-                <div className="text-5xl lg:text-8xl text-tint font-extrabold">
+              <div className="absolute z-10 flex h-full w-full flex-col gap-6 items-center justify-center px-12 lg:px-32">
+                <div className="text-2xl lg:text-6xl text-tint font-extrabold text-end">
                   تمتع بالفخامه و الاجواء الروحانية
                 </div>
-                <div className="text-5xl lg:text-8xl text-tint font-extrabold">فى فندق عفراء</div>
+                <div className="text-2xl lg:text-6xl text-tint font-extrabold text-end">فى فندق عفراء</div>
               </div>
             </div>
           </div>
         </section>
-        <section>
+        <section className="pb-20">
         <Services/>
         </section>
       </Layout>
