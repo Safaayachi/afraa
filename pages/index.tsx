@@ -97,7 +97,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="relative flex h-5/6 w-full flex-col-reverse gap-10 py-14 lg:flex-row">
-                  <div className="relative h-1/2 w-full bg-lime-200 lg:h-full lg:w-1/2 ">
+                  <div className="relative h-1/2 w-full  lg:h-full lg:w-1/2 ">
                     <Image
                       alt="afraa-suites"
                       src="/images/suites.png"
@@ -122,7 +122,7 @@ export default function Home() {
         </section>
         <section>
           <div className="relative h-[60rem] w-full py-16 lg:h-[60rem]">
-            <div className="relative h-full w-full bg-red-300">
+            <div className="relative h-full w-full ">
               <Image
                 alt="afraa-reception"
                 src="/images/reception.png"
