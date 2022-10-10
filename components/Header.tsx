@@ -5,7 +5,11 @@ import Image from "next/image";
 const Header = () => {
   return (
     <Fragment>
-      <header className={"w-full fixed border-b z-20 border-solid border-shade bg-tint"}>
+      <header
+        className={
+          "fixed z-20 w-full border-b border-solid border-shade bg-tint"
+        }
+      >
         <nav className="relative flex  h-20 w-full lg:hidden">
           <div className="flex w-1/6 cursor-pointer items-center justify-center bg-primary">
             <i className="icon-perm_identity_black_24dp font-md text-3xl text-tint"></i>
@@ -27,27 +31,27 @@ const Header = () => {
         </nav>
         <nav className="relative hidden h-20 w-full flex-row justify-between lg:flex ">
           <div className="relative flex h-full  w-56 items-center justify-center border-r border-solid border-shade p-4 px-6">
-            <div className="flex h-full w-full items-center justify-center bg-primary text-md font-bold text-tint ">
+            <div className="text-md flex h-full w-full items-center justify-center bg-primary font-bold text-tint ">
               تسجيل الدخول
             </div>
           </div>
           <div className="relative flex h-full w-full ">
             <div className="relative flex h-full w-5/12 justify-around">
               <div className="flex h-full flex-row gap-12">
-                <Link passHref href={"/"}>
-                  <div className="flex h-full  cursor-pointer items-center justify-center text-md font-bold text-secondary">
+                <Link passHref href={"/contact"}>
+                  <div className="text-md flex  h-full cursor-pointer items-center justify-center font-bold text-secondary">
                     اتصل بنا
                   </div>
                 </Link>
 
                 <Link passHref href={"/"}>
-                  <div className="flex h-full  cursor-pointer items-center justify-center text-md font-bold text-secondary">
+                  <div className="text-md flex  h-full cursor-pointer items-center justify-center font-bold text-secondary">
                     الخصوصية
                   </div>
                 </Link>
 
                 <Link passHref href={"/"}>
-                  <div className="flex h-full  cursor-pointer items-center justify-center text-md font-bold text-secondary">
+                  <div className="text-md flex  h-full cursor-pointer items-center justify-center font-bold text-secondary">
                     الشروط والأحكام
                   </div>
                 </Link>
@@ -67,19 +71,19 @@ const Header = () => {
             <div className="relative flex h-full w-5/12 flex-row justify-around">
               <div className="flex h-full flex-row gap-12">
                 <Link passHref href={"/"}>
-                  <div className="flex h-full  cursor-pointer items-center justify-center text-md font-bold text-secondary">
+                  <div className="text-md flex  h-full cursor-pointer items-center justify-center font-bold text-secondary">
                     تقييم
                   </div>
                 </Link>
 
                 <Link passHref href={"/"}>
-                  <div className="flex h-full  cursor-pointer items-center justify-center text-md font-bold text-secondary">
+                  <div className="text-md flex  h-full cursor-pointer items-center justify-center font-bold text-secondary">
                     حجوزاتى
                   </div>
                 </Link>
 
                 <Link passHref href={"/"}>
-                  <div className="flex h-full  cursor-pointer items-center justify-center text-md font-bold text-secondary">
+                  <div className="text-md flex  h-full cursor-pointer items-center justify-center font-bold text-secondary">
                     الغرف و الأجنحة
                   </div>
                 </Link>

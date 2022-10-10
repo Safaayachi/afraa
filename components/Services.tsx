@@ -4,7 +4,7 @@ import Image from "next/image";
 const Services = () => {
   const [slug, setSlug] = useState("");
   return (
-    <div className="relative h-[80rem] w-full px-32 lg:h-[80rem] ">
+    <div className="relative h-[80rem] w-full px-32 lg:h-[80rem] "> 
       <div className="relative flex h-full w-full flex-col">
         <div className="relative flex h-1/6 w-full justify-end ">
           <div className="flex items-center text-5xl font-black text-dark lg:text-6xl">
