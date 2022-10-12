@@ -1,15 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
 import Layout from "../components/Layout";
-import HotelsSearch from "../components/HotelsSearch";
+import RoomsSearch from "../components/RoomsSearch";
 import Services from "../components/Services";
 
 export default function Home() {
   return (
     <>
       <Layout>
-        <section className="relative w-full pt-20">
-          <div className=" h-[60rem] w-full lg:h-[40rem] 2xl:h-[50rem]">
+        <section className="relative w-full ">
+          <div className=" h-[50rem] w-full lg:h-[40rem] 2xl:h-[50rem]">
             <div className="relative h-full w-full">
               <Image
                 alt="afraa-hotel"
@@ -18,21 +18,21 @@ export default function Home() {
                 objectFit="cover"
               ></Image>
               <div className="absolute z-10 h-full w-full bg-black opacity-50"></div>
-              <div className="absolute z-10 h-full w-full p-32 py-32 lg:px-28">
+              <div className="absolute z-10 h-full w-full py-16 lg:py-32 px-8 lg:px-28">
                 <div className="relative flex h-full w-full flex-col gap-10 lg:gap-0">
                   <div className="relative flex h-2/6 w-full items-end justify-end">
-                    <div className="flex w-full flex-col gap-2 lg:w-1/2 lg:gap-10 ">
-                      <div className="text-end text-5xl font-extrabold text-tint md:text-6xl   ">
+                    <div className="flex w-full flex-col gap-4 lg:w-1/2 lg:gap-10 ">
+                      <div className="text-end text-4xl font-extrabold text-tint md:text-6xl   ">
                         مرحبا بكم في{" "}
                       </div>
-                      <div className="text-end text-5xl font-extrabold text-tint md:text-6xl  ">
+                      <div className="text-end text-4xl font-extrabold text-tint md:text-6xl  ">
                         فندق عفراء العزيزية
                       </div>
                     </div>
                   </div>
                   <div className="relative flex h-4/6 items-center justify-end">
                     <div className="relative h-full w-full bg-tint lg:h-1/4 lg:w-5/6">
-                      <HotelsSearch />
+                      <RoomsSearch />
                     </div>
                   </div>
                 </div>

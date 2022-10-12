@@ -3,11 +3,11 @@ import Layout from "../components/Layout";
 import Image from "next/image";
 import Link from "next/link";
 
-const login = () => {
+const register = () => {
   return (
     <>
       <Layout hasFooter={false}>
-        <div className="relative flex min-h-screen w-full px-8 pt-20 lg:min-h-screen lg:justify-center lg:items-center lg:bg-shade lg:py-36">
+        <div className="relative flex min-h-screen w-full px-8 pt-20 lg:min-h-screen lg:items-center lg:justify-center lg:bg-shade lg:py-36">
           <div className="relative flex h-full w-full flex-col gap-4  bg-tint py-6 lg:w-1/3 lg:px-4 xl:w-1/4 ">
             <div className="flex flex-col">
               <Link passHref href={"/"}>
@@ -80,17 +80,46 @@ const login = () => {
                         id="password"
                       />
                     </div>
-                    <div className="flex flex-row items-center justify-end gap-2 py-4">
+                    <div className="flex flex-col gap-2 py-4">
                       <label
-                        htmlFor="rememberMe"
+                        htmlFor="title"
                         className="flex justify-end text-xs text-dark"
                       >
-                        تذكرنى
+                        اللقب{" "}
+                      </label>
+                      <div className="relative flex h-12 w-full flex-row border border-solid border-shade">
+                        <i className=" icon-keyboard_arrow_down_black_24dp font-xs flex cursor-pointer items-center px-2 text-xl text-primary"></i>
+                        <input
+                          className="flex  w-full text-end text-dark"
+                          type="text"
+                          id="title"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-2 py-4">
+                      <label
+                        htmlFor="firstName"
+                        className="flex justify-end text-xs text-dark"
+                      >
+                        الاسم الاول{" "}
                       </label>
                       <input
-                        type="checkbox"
-                        id="rememberMe"
-                        className="form-checkbox h-4 w-4 cursor-pointer border border-solid border-shade "
+                        className="flex border border-solid border-shade p-3 text-end text-dark"
+                        type="text"
+                        id="firstName"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-2 py-4">
+                      <label
+                        htmlFor="lastName"
+                        className="flex justify-end text-xs text-dark"
+                      >
+                        اسم العائلة{" "}
+                      </label>
+                      <input
+                        className="flex border border-solid border-shade p-3 text-end text-dark"
+                        type="text"
+                        id="lastName"
                       />
                     </div>
                   </div>
@@ -99,31 +128,14 @@ const login = () => {
                   تسجيل الدخول{" "}
                 </button>
               </form>
-              <div className="relative flex w-full flex-row justify-between py-4">
-                <Link passHref href={"/"}>
-                  <div className="text-xs font-bold cursor-pointer text-primary underline">
-                    هل نسيت كلمة المرور؟
-                  </div>
-                </Link>
-                <Link passHref href={"/register"}>
-                  <div className="text-xs font-bold cursor-pointer text-primary underline">
-                    إنشاء حساب الان
+              <div className="relative flex w-full  justify-start py-4">
+                <Link passHref href={"/login"}>
+                  <div className="cursor-pointer text-xs font-bold text-primary underline">
+                    هل لديك حساب مسبقا؟{" "}
                   </div>
                 </Link>
               </div>
-              <div className="flex w-full justify-end">
-                <p className="mt-4 text-center text-xs  text-dark">
-                  تسجيلك الدخول يعني موافقتك على{" "}
-                  <span className="font-bold text-primary underline">
-                    <Link href="/">شروط الاستخدام</Link>
-                  </span>{" "}
-                  و{" "}
-                  <span className="font-bold text-primary underline">
-                    <Link href="/">سياسة الخصوصية </Link>
-                  </span>{" "}
-                  فندق عفراء
-                </p>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -132,4 +144,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default register;
