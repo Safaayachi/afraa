@@ -46,7 +46,7 @@ const SearchRoomCard = () => {
         </div>
       </div>
       <div className="border-t border-solid border-shade bg-basic px-4">
-        <div className="flex flex-col border-b border-solid border-shade">
+        <div className="flex flex-col border-b border-solid border-shade ">
           <div className="flex flex-col py-2">
             <div className="flex justify-end text-sm font-extrabold text-dark">
               غرفة كينج بدون إطلالة
