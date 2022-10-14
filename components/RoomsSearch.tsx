@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const RoomsSearch = () => {
   return (
-    <div className="relative h-full w-full px-4 py-2 lg:px-1 lg:py-1">
+    <div className="relative h-full w-full px-4 py-2 lg:px-1 lg:py-1 bg-tint">
       <div className="relative flex h-full w-full flex-col lg:flex-row-reverse lg:gap-2">
         <div className="relative flex h-1/6 w-full flex-col items-end border-b border-solid border-shade lg:h-full lg:w-1/6 lg:border-l lg:border-b-0">
           <p className="py-2 text-xs font-bold text-primary">تاريخ الوصول </p>

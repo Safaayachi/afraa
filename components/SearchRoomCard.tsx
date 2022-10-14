@@ -4,19 +4,20 @@ import Image from "next/image";
 const SearchRoomCard = () => {
   return (
     <div className="relative flex h-full w-full flex-col border border-solid border-shade bg-tint">
-      <div className="relative h-56 w-full">
-        <Image
-          alt="afraa-hotel"
-          src="/images/kingRoom.png"
-          layout="fill"
-          objectFit="cover"
-        ></Image>
-      </div>
-      <div className="flex flex-col px-4 ">
+      <div className="flex flex-col lg:flex-row-reverse">
+        <div className="relative h-56 w-full lg:w-96">
+          <Image
+            alt="afraa-hotel"
+            src="/images/kingRoom.png"
+            layout="fill"
+            objectFit="cover"
+          ></Image>
+        </div>
+        <div className="flex flex-col px-4">
         <div className="flex justify-end border-b border-solid border-shade py-4 text-3xl font-bold text-dark">
           غرفة كينج
         </div>
-        <div className="flex flex-col  py-2">
+        <div className="flex flex-col py-2 lg:flex-row-reverse lg:gap-6">
           <div className="flex flex-row justify-end gap-6">
             <div className="flex flex-row gap-2">
               <div className="flex items-center text-xs font-bold text-dark">
@@ -44,10 +45,11 @@ const SearchRoomCard = () => {
             </div>
           </div>
         </div>
+        </div>
       </div>
       <div className="border-t border-solid border-shade bg-basic px-4">
-        <div className="flex flex-col border-b border-solid border-shade ">
-          <div className="flex flex-col py-2">
+        <div className="flex flex-col border-b border-solid border-shade lg:flex-row-reverse lg:items-center ">
+          <div className="flex flex-col py-2 lg:w-1/2">
             <div className="flex justify-end text-sm font-extrabold text-dark">
               غرفة كينج بدون إطلالة
             </div>
@@ -60,8 +62,8 @@ const SearchRoomCard = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-row justify-between pb-2">
-            <div className="flex justify-center items-center font-semibold bg-primary cursor-pointer w-28 h-10 text-tint">
+          <div className="flex flex-row items-center justify-between pb-2 lg:w-1/2 lg:border-r lg:border-solid lg:border-shade lg:flex-row-reverse lg:py-6 lg:px-10">
+            <div className="flex h-10 w-28 cursor-pointer items-center justify-center bg-primary font-semibold text-tint">
               اختر
             </div>
             <div className="flex flex-row items-center gap-1">
@@ -72,36 +74,41 @@ const SearchRoomCard = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col border-b border-solid border-shade">
-          <div className="flex flex-col py-2">
+        <div className="flex flex-col border-b border-solid border-shade lg:flex-row-reverse lg:items-center">
+          <div className="flex flex-col py-2 lg:w-1/2">
             <div className="flex justify-end text-sm font-extrabold text-dark">
               غرفة كينج مع إطلالة على المدينة{" "}
             </div>
-            <div className="flex flex-row gap-4 justify-end">
-            <div className="flex flex-row justify-end gap-2">
-              <div className="flex items-center text-xs font-bold text-dark">
-                مشمول الإفطار
+            <div className="flex flex-row justify-end gap-4">
+              <div className="flex flex-row justify-end gap-2">
+                <div className="flex items-center text-xs font-bold text-dark">
+                  مشمول الإفطار
+                </div>
+                <div>
+                  <i className="icon-local_cafe_black_24dp text-sm text-primary"></i>
+                </div>
               </div>
-              <div>
-                <i className="icon-local_cafe_black_24dp text-sm text-primary"></i>
+              <div className="flex flex-row justify-end gap-2">
+                <div className="flex items-center text-xs font-bold text-dark">
+                  مشمول الإفطار
+                </div>
+                <div>
+                  <i className="icon-local_cafe_black_24dp text-sm text-primary"></i>
+                </div>
               </div>
             </div>
-            <div className="flex flex-row justify-end gap-2">
-              <div className="flex items-center text-xs font-bold text-dark">
-                مشمول الإفطار
-              </div>
-              <div>
-                <i className="icon-local_cafe_black_24dp text-sm text-primary"></i>
-              </div>
-            </div>
-            </div>
-            
           </div>
-          <div className="flex flex-row justify-between pb-2">
-            <div className="relative flex flex-row w-28 h-10 items-center bg-primary">
-               <div className="flex justify-center items-center w-1/3 "><i className="icon-add_black_24dp-2 text-lg cursor-pointer text-tint"></i></div>
-               <div className="flex justify-center items-center h-9 bg-tint w-1/3 text-secondary font-bold">2</div>
-               <div className="flex justify-center items-center w-1/3 "><i className="icon-remove_black_24dp text-lg cursor-pointer text-tint"></i></div>
+          <div className="flex flex-row justify-between pb-2 lg:w-1/2 lg:border-r lg:border-solid lg:border-shade lg:flex-row-reverse lg:py-6 lg:px-10">
+            <div className="relative flex h-10 w-28 flex-row items-center bg-primary">
+              <div className="flex w-1/3 items-center justify-center ">
+                <i className="icon-add_black_24dp-2 cursor-pointer text-lg text-tint"></i>
+              </div>
+              <div className="flex h-9 w-1/3 items-center justify-center bg-tint font-bold text-secondary">
+                2
+              </div>
+              <div className="flex w-1/3 items-center justify-center ">
+                <i className="icon-remove_black_24dp cursor-pointer text-lg text-tint"></i>
+              </div>
             </div>
             <div className="flex flex-row items-center gap-1">
               <div className=" text-xs font-semibold text-secondary">SAR</div>
@@ -111,8 +118,8 @@ const SearchRoomCard = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col border-b border-solid border-shade">
-          <div className="flex flex-col py-2">
+        <div className="flex flex-col border-b border-solid border-shade lg:flex-row-reverse lg:items-center">
+          <div className="flex flex-col py-2 lg:w-1/2">
             <div className="flex justify-end text-sm font-extrabold text-dark">
               غرفة كينج بدون إطلالة
             </div>
@@ -125,8 +132,8 @@ const SearchRoomCard = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-row justify-between pb-2">
-            <div className="flex justify-center font-semibold bg-primary items-center cursor-pointer w-28 h-10 text-tint">
+          <div className="flex flex-row justify-between pb-2 lg:w-1/2 lg:border-r lg:border-solid lg:border-shade lg:flex-row-reverse lg:py-6 lg:px-10">
+            <div className="flex h-10 w-28 cursor-pointer items-center justify-center bg-primary font-semibold text-tint">
               اختر
             </div>
             <div className="flex flex-row items-center gap-1">
@@ -137,8 +144,8 @@ const SearchRoomCard = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col border-b border-solid border-shade">
-          <div className="flex flex-col py-2">
+        <div className="flex flex-col border-b border-solid border-shade lg:flex-row-reverse lg:items-center">
+          <div className="flex flex-col py-2 lg:w-1/2">
             <div className="flex justify-end text-sm font-extrabold text-dark">
               غرفة كينج بدون إطلالة
             </div>
@@ -151,8 +158,8 @@ const SearchRoomCard = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-row justify-between pb-2">
-            <div className="flex justify-center font-semibold bg-primary w-28 h-10 items-center cursor-pointer text-tint">
+          <div className="flex flex-row justify-between pb-2 lg:w-1/2 lg:border-r lg:border-solid lg:border-shade lg:flex-row-reverse lg:py-6 lg:px-10">
+            <div className="flex h-10 w-28 cursor-pointer items-center justify-center bg-primary font-semibold text-tint">
               اختر
             </div>
             <div className="flex flex-row items-center gap-1">
