@@ -23,24 +23,24 @@ const Rooms = () => {
               layout="fill"
               objectFit="cover"
             ></Image>
-            <div className="absolute z-10 flex w-full h-full items-center justify-center ">
+            <div className="absolute z-10 flex w-full h-full items-center justify-center">
               <div className="mb-10 text-3xl font-bold text-tint">الأجنحة </div>
             </div>
             <div
-              className="absolute z-20 flex h-full w-full items-center justify-center text-tint"
+              className="absolute z-20 flex h-full w-full items-center justify-center text-tint hover:bg-black hover:bg-opacity-20"
               onMouseEnter={() => setSuiteShowing(true)}
               onMouseLeave={() => setSuiteShowing(false)}
             >
               <Transition
                 show={isSuiteShowing}
-                enter="transition-opacity duration-250"
+                enter="transition-opacity duration-250 scale-y-75 origin-top delay-75 ease-in-out "
                 enterFrom="opacity-0"
                 enterTo="opacity-100"
                 leave="transition-opacity duration-250"
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <div className="mt-32 flex flex-col items-center gap-4">
+                <div className="mt-32 flex flex-col items-center gap-2 text-lg">
                   <Link passHref href={"/"}><div className="cursor-pointer">جناح جونيور</div></Link>
                   <Link passHref href={"/"}><div className="cursor-pointer">جناح من غرفتين</div></Link>
                   <Link passHref href={"/"}><div className="cursor-pointer">جناح عائلى</div></Link>
@@ -59,21 +59,21 @@ const Rooms = () => {
               <div className="mb-10 text-3xl font-bold text-tint">الغرف </div>
             </div>
             <div
-              className="absolute z-20 flex h-full w-full items-center justify-center text-tint"
+              className="absolute z-20 flex h-full w-full items-center justify-center  text-tint hover:bg-black hover:bg-opacity-20"
               onMouseEnter={() => setRoomsShowing(true)}
               onMouseLeave={() => setRoomsShowing(false)}
             >
               <Transition
                 show={isRoomsShowing}
-                enter="transition-opacity duration-250"
+                enter="transition-opacity duration-250 scale-y-75 origin-top delay-75 ease-in-out"
                 enterFrom="opacity-0"
                 enterTo="opacity-100"
                 leave="transition-opacity duration-250"
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <div className="mt-48 flex flex-col items-center gap-4">
-                  <Link passHref href={"/"}><div className="cursor-pointer">غرف رباعية</div></Link>
+                <div className="mt-48 flex flex-col items-center gap-2 text-lg">
+                  <Link passHref href={"/room"}><div className="cursor-pointer ">غرف رباعية</div></Link>
                   <Link passHref href={"/"}><div className="cursor-pointer">غرف ثلاثية</div></Link>
                   <Link passHref href={"/"}><div className="cursor-pointer">غرف توأم </div></Link>
                   <Link passHref href={"/"}><div className="cursor-pointer">غرفة كينج</div></Link>
