@@ -1,27 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../components/Layout";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
+import nextI18NextConfig from "../i18n/next-i18next.config"
+import type { GetStaticProps, NextPage } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useRouter } from "next/router";
+type Inputs = {
+  UserName: string;
+  Password: string;
+  FirstName: string;
+  LastName: string;
+};
 
-const register = () => {
+const Register: NextPage<{}> = () => {
+  const {t} = useTranslation(["input","button",]);
+  const [isPasswordHidden, setIsPasswordHidden] = useState(false);
+  const router = useRouter();
+  const {
+    register,
+    formState: { errors, isValid },
+    handleSubmit,
+  } = useForm<Inputs>({
+    reValidateMode: "onChange",
+    mode: "all",
+  });
+  const onSubmit: SubmitHandler<Inputs> = async (formData) => {
+    if (isValid) {
+      const options = {
+        method: "POST",
+        Headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      };
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API}/account/register`,
+          options
+        );
+        const data = await res.json();
+        if (data.success) {
+          console.log(data);
+          console.log("hello");
+          router.push("/auth/login");
+        }
+      } catch (err) {}
+    }
+  };
   return (
     <>
       <Layout hasFooter={false}>
         <div className="relative flex min-h-screen w-full px-8 pt-20 lg:min-h-screen lg:items-center lg:justify-center lg:bg-shade lg:py-36">
-          <div className="relative flex h-full w-full flex-col gap-4  bg-tint py-6 lg:w-1/3 lg:px-4 xl:w-1/4 ">
+          <div className="relative flex h-full w-full flex-col gap-4  bg-tint py-6 lg:py-2 lg:w-1/3 lg:px-4">
             <div className="flex flex-col">
               <Link passHref href={"/"}>
                 <div className="hidden justify-start lg:flex">
                   <i className="icon-close_black_24dp font-xs flex cursor-pointer items-center px-2 text-xl text-dark"></i>
                 </div>
               </Link>
-              <h1 className="flex justify-center py-6 text-2xl font-bold text-dark">
+              <h1 className="flex justify-center py-6 lg:py-3 text-2xl font-bold text-dark">
                 تسجيل الدخول
               </h1>
               <p className="flex justify-center text-xs text-darkTint">
                 باستخدام ملفك الشخصي علي شبكة التواصل الاجتماعى
               </p>
-              <div className="flex justify-center border-b border-solid border-shade py-6">
+              <div className="flex justify-center border-b border-solid border-shade py-6 lg:py-3">
                 <div className="relative flex flex-row gap-4 ">
                   <Link passHref href={"/"}>
                     <div className="relative h-8 w-8 cursor-pointer">
@@ -50,81 +97,95 @@ const register = () => {
               <p className="flex justify-center text-xs text-darkTint">
                 بواسطة بريدك الالكترونى
               </p>
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <fieldset>
                   <div className="flex flex-col gap-2 py-4">
                     <label
                       htmlFor="email"
                       className="flex justify-end text-xs text-dark"
                     >
-                      البريد الالكترونى الخاص بك
+                      {t("input:email")}*
                     </label>
                     <input
                       className="flex border border-solid border-shade p-3 text-end text-dark"
                       type="email"
                       id="email"
+                      {...register("UserName", {
+                        required: true,
+                        pattern:
+                          /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                      })}
                     />
+                    {errors.LastName && (
+                      <div className="text-xxs text-danger text-end">wrong</div>
+                    )}
                   </div>
                   <div className="flex flex-col gap-2 py-4">
                     <label
-                      htmlFor="password"
+                      htmlFor="Password"
                       className="flex justify-end text-xs text-dark"
                     >
-                      كلمة المرور
+                      {t("input:password")}
                     </label>
                     <div className="relative flex h-12 w-full flex-row border border-solid border-shade">
                       <i className="icon-visibility_black_24dp font-xs flex cursor-pointer items-center px-2 text-xl text-darkTint"></i>
                       <input
                         className="flex  w-full text-end text-dark"
-                        type="password"
-                        id="password"
+                        type="Password"
+                        id="Password"
+                        {...register("Password", { required: true })}
                       />
                     </div>
+                    {errors.LastName && (
+                      <div className="text-xxs text-danger text-end">wrong</div>
+                    )}
+
                     <div className="flex flex-col gap-2 py-4">
                       <label
-                        htmlFor="title"
+                        htmlFor="FirstName"
                         className="flex justify-end text-xs text-dark"
                       >
-                        اللقب{" "}
-                      </label>
-                      <div className="relative flex h-12 w-full flex-row border border-solid border-shade">
-                        <i className=" icon-keyboard_arrow_down_black_24dp font-xs flex cursor-pointer items-center px-2 text-xl text-primary"></i>
-                        <input
-                          className="flex  w-full text-end text-dark"
-                          type="text"
-                          id="title"
-                        />
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-2 py-4">
-                      <label
-                        htmlFor="firstName"
-                        className="flex justify-end text-xs text-dark"
-                      >
-                        الاسم الاول{" "}
+                        {t("input:first-name")}
                       </label>
                       <input
                         className="flex border border-solid border-shade p-3 text-end text-dark"
                         type="text"
-                        id="firstName"
+                        id="FirstName"
+                        {...register("FirstName", {
+                          required: true,
+                          pattern: /^[A-Za-z]+$/i,
+                        })}
                       />
+                      {errors.LastName && (
+                        <div className="text-xxs text-danger text-end">wrong</div>
+                      )}
                     </div>
                     <div className="flex flex-col gap-2 py-4">
                       <label
-                        htmlFor="lastName"
+                        htmlFor="LastName"
                         className="flex justify-end text-xs text-dark"
                       >
-                        اسم العائلة{" "}
+                        {t("input:last-name")}
                       </label>
                       <input
                         className="flex border border-solid border-shade p-3 text-end text-dark"
                         type="text"
-                        id="lastName"
+                        id="LastName"
+                        {...register("LastName", {
+                          required: true,
+                          pattern: /^[A-Za-z]+$/i,
+                        })}
                       />
+                      {errors.LastName && (
+                        <div className="text-xxs text-danger text-end">wrong</div>
+                      )}
                     </div>
                   </div>
                 </fieldset>
-                <button className="flex w-full justify-center bg-secondary py-3 text-lg font-bold text-tint">
+                <button
+                  className="flex w-full justify-center bg-secondary py-3 text-lg font-bold text-tint"
+                  type="button"
+                >
                   تسجيل الدخول{" "}
                 </button>
               </form>
@@ -135,7 +196,6 @@ const register = () => {
                   </div>
                 </Link>
               </div>
-              
             </div>
           </div>
         </div>
@@ -144,4 +204,14 @@ const register = () => {
   );
 };
 
-export default register;
+export const getStaticProps: GetStaticProps=async (context) => {
+  return{
+    props:{
+      ...(await serverSideTranslations(context.locale as string,
+        ["input","button"], nextI18NextConfig
+        )),
+    },
+  };
+};
+
+export default Register;

@@ -1,0 +1,15 @@
+{
+    "email":"Email",
+    "password":"Password",
+    "first-name":"First Name",
+    "last-name":"Last Name",
+    "reservation-details":"Enter your reservation details",
+    "reservation-number":"Reservation number",
+    "reservation-number-verification":"Check your reservation confirmation e-mail for repair on your reservation number and its password",
+    "departure-date":"Departure Date",
+    "rate-stay":"Rate your stay",
+    "rate-stay-description":"Only customers who booked through Afraa hotel and stayed at Violet Hotel are eligible to write a review. This allows us to make sure the reviews come from real guests like you",
+    "date-of-arrival":"date of arrival"
+    
+
+}

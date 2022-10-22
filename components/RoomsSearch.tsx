@@ -17,7 +17,7 @@ const RoomsSearch = () => {
         <div className="relative flex h-1/6 w-full flex-col items-end border-b border-solid border-shade lg:h-full lg:w-1/6 lg:border-l lg:border-b-0">
           <p className="py-2 text-xs font-bold text-primary">تاريخ المغادرة </p>
           <div className="flex h-full w-full flex-row justify-between">
-            <i className=" icon-calendar_today_black_24dp-3 font-sm flex cursor-pointer items-center px-2 text-lg text-dark"></i>
+            <i className=" icon-calendar_today_black_24dp-3 font-sm flex cursor-pointer items-center px-2 text-sm text-dark"></i>
             <p className="flex items-center text-sm font-bold text-secondary">
               أغسطس 03, 2021
             </p>

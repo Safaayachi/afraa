@@ -2,12 +2,13 @@ import React from "react";
 import Layout from "../components/Layout";
 import Image from "next/image";
 import Link from "next/link";
+import useForm from "react-hook-form";
 
 const login = () => {
   return (
     <>
       <Layout hasFooter={false}>
-        <div className="relative flex min-h-screen w-full px-8 pt-20 lg:min-h-screen lg:justify-center lg:items-center lg:bg-shade lg:py-36">
+        <div className="relative flex min-h-screen w-full px-8 pt-20 lg:min-h-screen lg:items-center lg:justify-center lg:bg-shade    lg:py-36">
           <div className="relative flex h-full w-full flex-col gap-4  bg-tint py-6 lg:w-1/3 lg:px-4 xl:w-1/4 ">
             <div className="flex flex-col">
               <Link passHref href={"/"}>
@@ -101,12 +102,12 @@ const login = () => {
               </form>
               <div className="relative flex w-full flex-row justify-between py-4">
                 <Link passHref href={"/"}>
-                  <div className="text-xs font-bold cursor-pointer text-primary underline">
+                  <div className="cursor-pointer text-xs font-bold text-primary underline">
                     هل نسيت كلمة المرور؟
                   </div>
                 </Link>
                 <Link passHref href={"/register"}>
-                  <div className="text-xs font-bold cursor-pointer text-primary underline">
+                  <div className="cursor-pointer text-xs font-bold text-primary underline">
                     إنشاء حساب الان
                   </div>
                 </Link>

@@ -1,11 +1,15 @@
-import Head from "next/head";
 import Image from "next/image";
 import Layout from "../components/Layout";
 import RoomsSearch from "../components/RoomsSearch";
 import Services from "../components/Services";
-import Rooms from "../components/Rooms";
+import Rooms from "./rooms";
+import { useTranslation } from "next-i18next";
+import nextI18NextConfig from "../i18n/next-i18next.config";
+import type { GetStaticProps, NextPage } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-export default function Home() {
+const Home: NextPage<{}> = () => {
+  const { t, i18n } = useTranslation(["home"]);
   return (
     <>
       <Layout>
@@ -19,15 +23,15 @@ export default function Home() {
                 objectFit="cover"
               ></Image>
               <div className="absolute z-10 h-full w-full bg-black opacity-50"></div>
-              <div className="absolute z-10 h-full w-full py-16 lg:py-32 px-8 lg:px-28">
-                <div className="relative flex h-full w-full flex-col gap-10 lg:gap-0">
+              <div className="absolute z-10 h-full w-full py-16 px-8 lg:px-28 lg:pt-52">
+                <div className="relative flex h-full w-full flex-col gap-6 lg:gap-0">
                   <div className="relative flex h-2/6 w-full items-end justify-end">
-                    <div className="flex w-full flex-col gap-4 lg:w-1/2 lg:gap-10 ">
-                      <div className="text-end text-4xl font-extrabold text-tint md:text-6xl   ">
-                        مرحبا بكم في{" "}
+                    <div className="flex w-full flex-col gap-4 lg:gap-6 ">
+                      <div className="text-end text-4xl font-extrabold text-tint md:text-6xl">
+                        {t("home:welcoming-part1")}
                       </div>
-                      <div className="text-end text-4xl font-extrabold text-tint md:text-6xl  ">
-                        فندق عفراء العزيزية
+                      <div className="text-end text-4xl font-extrabold text-tint md:text-6xl">
+                        {t("home:welcoming-part2")}
                       </div>
                     </div>
                   </div>
@@ -47,13 +51,10 @@ export default function Home() {
               <div className="relative h-1/3 w-3/4 bg-tint p-16">
                 <div className="flex h-full w-full flex-col items-end gap-6 bg-white">
                   <h1 className="text-end text-7xl font-bold text-secondary">
-                    افضل الخدمات
+                    {t("home:best-services")}
                   </h1>
                   <p className="text-end text-2xl text-secondary">
-                    فندق عفراء يقدم لك مجموعة متنوعة و مميزة من الغرف و الأجنحة
-                    التي تبلغ 470 غرفةو التي تناسب ذوقك لمزيد من الراحة و
-                    الرفاهية. و يقدم لكم فندق عفراء أفضل خدمات الضيافة المميزة
-                    لإقامة أكثر راحة و هدوء في Afraa Alazizia
+                    {t("home:best-services-description")}
                   </p>
                 </div>
               </div>
@@ -70,14 +71,11 @@ export default function Home() {
 
               <div className="relative h-1/2 w-full  py-12 lg:hidden">
                 <div className="flex h-full w-full flex-col items-end gap-6 bg-white">
-                  <h1 className="text-end text-3xl lg:text-5xl font-bold text-secondary">
-                    افضل الخدمات
+                  <h1 className="text-end text-3xl font-bold text-secondary lg:text-5xl">
+                    {t("home:best-services")}
                   </h1>
-                  <p className="text-end text-xl lg:text-2xl text-secondary">
-                    فندق عفراء يقدم لك مجموعة متنوعة و مميزة من الغرف و الأجنحة
-                    التي تبلغ 470 غرفةو التي تناسب ذوقك لمزيد من الراحة و
-                    الرفاهية. و يقدم لكم فندق عفراء أفضل خدمات الضيافة المميزة
-                    لإقامة أكثر راحة و هدوء في Afraa Alazizia
+                  <p className="text-end text-xl text-secondary lg:text-2xl">
+                    {t("home:best-services-description")}
                   </p>
                 </div>
               </div>
@@ -90,7 +88,7 @@ export default function Home() {
               <div className="h-1/2 w-full bg-shade"></div>
               <div className="h-1/2 w-full bg-tint"></div>
             </div>
-            <Rooms/>
+            <Rooms />
           </div>
         </section>
         <section>
@@ -103,19 +101,33 @@ export default function Home() {
                 objectFit="cover"
               ></Image>
               <div className="absolute z-10 h-full w-full bg-black opacity-30"></div>
-              <div className="absolute z-10 flex h-full w-full flex-col gap-6 items-center justify-center px-12 lg:px-32">
-                <div className="text-2xl lg:text-6xl text-tint font-extrabold text-end">
-                  تمتع بالفخامه و الاجواء الروحانية
+              <div className="absolute z-10 flex h-full w-full flex-col items-center justify-center gap-6 px-12 lg:px-32">
+                <div className="text-end text-2xl font-extrabold text-tint lg:text-6xl">
+                  {t("home:reception-description-part1")}
                 </div>
-                <div className="text-2xl lg:text-6xl text-tint font-extrabold text-end">فى فندق عفراء</div>
+                <div className="text-end text-2xl font-extrabold text-tint lg:text-6xl">
+                  {t("home:reception-description-part2")}
+                </div>
               </div>
             </div>
           </div>
         </section>
         <section className="pb-20">
-        <Services/>
+          <Services />
         </section>
       </Layout>
     </>
   );
-}
+};
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(
+        context.locale as string,
+        ["home","common","input"],
+        nextI18NextConfig
+      )),
+    },
+  };
+};
+export default Home;
