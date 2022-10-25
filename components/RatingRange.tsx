@@ -26,12 +26,12 @@ const RatingRange = () => {
         onClick={() => setRate(9)}
       >
         {rate == 9 ? (
-          <>
+          <div className="flex flex-row items-center">
             <div className="h-0.5 w-10 bg-primary"></div>
-            <div className="flex h-6 w-6 cursor-pointer items-center justify-center rounded-full ring-4 ring-primary">
-              <div className="h-1.5 w-1.5 cursor-pointer rounded-full bg-darkTint hover:bg-primary"></div>
+            <div className="flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-shade ring-2 ring-primary">
+              
             </div>
-          </>
+          </div>
         ) : rate < 9 ? (
           <>
             <div className="h-0.5 w-10 bg-primary"></div>
