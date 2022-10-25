@@ -1,12 +1,17 @@
-{   "arabic": "Arabic",
-    "english": "English",
-    "language": "The language",
-    "login":"Log In",
-    "contact":"Contact Us",
-    "privacy":"Privacy",
-    "terms-and-conditions":"Terms and Conditions",
-    "reservations":"Reservations",
-    "rating":"Rating"
-
-
+{
+  "arabic": "Arabic",
+  "english": "English",
+  "language": "The language",
+  "login": "Log In",
+  "contact": "Contact Us",
+  "privacy": "Privacy",
+  "terms-and-conditions": "Terms and Conditions",
+  "reservations": "Reservations",
+  "rating": "Rating",
+  "sign-up": "Sign Up",
+  "privacy-policy": "Privacy policy",
+  "aafra-hotel": "Afraa Hotel",
+  "terms-of-use": "Terms of use",
+  "address-p1":"Al-Masjid Al-Haram Road, University",
+  "address-p2":"Mecca 24211, Saudi Arabia"
 }

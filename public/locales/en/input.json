@@ -9,7 +9,18 @@
     "departure-date":"Departure Date",
     "rate-stay":"Rate your stay",
     "rate-stay-description":"Only customers who booked through Afraa hotel and stayed at Violet Hotel are eligible to write a review. This allows us to make sure the reviews come from real guests like you",
-    "date-of-arrival":"date of arrival"
+    "date-of-arrival":"date of arrival",
+    "socials":"Using your social network profile",
+    "via-email":"Via your e-mail",
+    "already-have-account":"Do you already have an account?",
+    "remember-me":"Remember me",
+    "forgot-password":"Forgot your password?",
+    "accept-terms-conditions":"Your login means that you agree to the",
+    "full-name":"Full Name",
+    "subject":"Subject",
+    "message":"Message",
+    "send":"Send"
+    
     
 
 }

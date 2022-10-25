@@ -1,28 +1,12 @@
 import React from "react";
 import Link from "next/link";
+import DatePicker from "./DatePicker";
 
 const RoomsSearch = () => {
   return (
     <div className="relative h-full w-full px-4 py-2 lg:px-1 lg:py-1 bg-tint">
       <div className="relative flex h-full w-full flex-col lg:flex-row-reverse lg:gap-2">
-        <div className="relative flex h-1/6 w-full flex-col items-end border-b border-solid border-shade lg:h-full lg:w-1/6 lg:border-l lg:border-b-0">
-          <p className="py-2 text-xs font-bold text-primary">تاريخ الوصول </p>
-          <div className="flex h-full w-full flex-row justify-between">
-            <i className=" icon-calendar_today_black_24dp-3 font-sm flex cursor-pointer items-center px-2 text-lg text-dark"></i>
-            <p className="flex items-center text-sm font-bold text-secondary">
-              يوليو 03, 2021
-            </p>
-          </div>
-        </div>
-        <div className="relative flex h-1/6 w-full flex-col items-end border-b border-solid border-shade lg:h-full lg:w-1/6 lg:border-l lg:border-b-0">
-          <p className="py-2 text-xs font-bold text-primary">تاريخ المغادرة </p>
-          <div className="flex h-full w-full flex-row justify-between">
-            <i className=" icon-calendar_today_black_24dp-3 font-sm flex cursor-pointer items-center px-2 text-sm text-dark"></i>
-            <p className="flex items-center text-sm font-bold text-secondary">
-              أغسطس 03, 2021
-            </p>
-          </div>
-        </div>
+        <DatePicker/>
         <div className="relative flex h-1/6 w-full flex-col items-end border-b border-solid border-shade lg:h-full lg:w-1/6 lg:border-l lg:border-b-0">
           <p className="py-2 text-xs font-bold text-primary">عدد النزلاء </p>
           <div className="flex h-full w-full flex-row justify-between">

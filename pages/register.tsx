@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
-import nextI18NextConfig from "../i18n/next-i18next.config"
+import nextI18NextConfig from "../i18n/next-i18next.config";
 import type { GetStaticProps, NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -16,7 +16,7 @@ type Inputs = {
 };
 
 const Register: NextPage<{}> = () => {
-  const {t} = useTranslation(["input","button",]);
+  const { t } = useTranslation(["input", "button", "common"]);
   const [isPasswordHidden, setIsPasswordHidden] = useState(false);
   const router = useRouter();
   const {
@@ -55,18 +55,18 @@ const Register: NextPage<{}> = () => {
     <>
       <Layout hasFooter={false}>
         <div className="relative flex min-h-screen w-full px-8 pt-20 lg:min-h-screen lg:items-center lg:justify-center lg:bg-shade lg:py-36">
-          <div className="relative flex h-full w-full flex-col gap-4  bg-tint py-6 lg:py-2 lg:w-1/3 lg:px-4">
+          <div className="relative flex h-full w-full flex-col gap-4  bg-tint py-6 lg:w-1/3 lg:py-2 lg:px-4">
             <div className="flex flex-col">
               <Link passHref href={"/"}>
                 <div className="hidden justify-start lg:flex">
                   <i className="icon-close_black_24dp font-xs flex cursor-pointer items-center px-2 text-xl text-dark"></i>
                 </div>
               </Link>
-              <h1 className="flex justify-center py-6 lg:py-3 text-2xl font-bold text-dark">
-                تسجيل الدخول
+              <h1 className="flex justify-center py-6 text-2xl font-bold text-dark lg:py-3">
+                {t("common:sign-up")}
               </h1>
               <p className="flex justify-center text-xs text-darkTint">
-                باستخدام ملفك الشخصي علي شبكة التواصل الاجتماعى
+                {t("input:socials")}
               </p>
               <div className="flex justify-center border-b border-solid border-shade py-6 lg:py-3">
                 <div className="relative flex flex-row gap-4 ">
@@ -95,7 +95,7 @@ const Register: NextPage<{}> = () => {
             </div>
             <div className="flex flex-col ">
               <p className="flex justify-center text-xs text-darkTint">
-                بواسطة بريدك الالكترونى
+                {t("input:via-email")}
               </p>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <fieldset>
@@ -117,7 +117,7 @@ const Register: NextPage<{}> = () => {
                       })}
                     />
                     {errors.LastName && (
-                      <div className="text-xxs text-danger text-end">wrong</div>
+                      <div className="text-xxs text-end text-danger">wrong</div>
                     )}
                   </div>
                   <div className="flex flex-col gap-2 py-4">
@@ -137,7 +137,7 @@ const Register: NextPage<{}> = () => {
                       />
                     </div>
                     {errors.LastName && (
-                      <div className="text-xxs text-danger text-end">wrong</div>
+                      <div className="text-xxs text-end text-danger">wrong</div>
                     )}
 
                     <div className="flex flex-col gap-2 py-4">
@@ -157,7 +157,9 @@ const Register: NextPage<{}> = () => {
                         })}
                       />
                       {errors.LastName && (
-                        <div className="text-xxs text-danger text-end">wrong</div>
+                        <div className="text-xxs text-end text-danger">
+                          wrong
+                        </div>
                       )}
                     </div>
                     <div className="flex flex-col gap-2 py-4">
@@ -177,7 +179,9 @@ const Register: NextPage<{}> = () => {
                         })}
                       />
                       {errors.LastName && (
-                        <div className="text-xxs text-danger text-end">wrong</div>
+                        <div className="text-xxs text-end text-danger">
+                          wrong
+                        </div>
                       )}
                     </div>
                   </div>
@@ -186,13 +190,13 @@ const Register: NextPage<{}> = () => {
                   className="flex w-full justify-center bg-secondary py-3 text-lg font-bold text-tint"
                   type="button"
                 >
-                  تسجيل الدخول{" "}
+                  {t("common:sign-up")}
                 </button>
               </form>
               <div className="relative flex w-full  justify-start py-4">
                 <Link passHref href={"/login"}>
                   <div className="cursor-pointer text-xs font-bold text-primary underline">
-                    هل لديك حساب مسبقا؟{" "}
+                  {t("input:already-have-account")}
                   </div>
                 </Link>
               </div>
@@ -204,12 +208,14 @@ const Register: NextPage<{}> = () => {
   );
 };
 
-export const getStaticProps: GetStaticProps=async (context) => {
-  return{
-    props:{
-      ...(await serverSideTranslations(context.locale as string,
-        ["input","button"], nextI18NextConfig
-        )),
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(
+        context.locale as string,
+        ["input", "button", "common", "home"],
+        nextI18NextConfig
+      )),
     },
   };
 };

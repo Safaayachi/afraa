@@ -1,11 +1,21 @@
 import React from "react";
 import Link from "next/link";
-import Layout from "../components/Layout";
+import Layout from "../../components/Layout";
 import Image from "next/image";
-import Rooms from "./rooms";
-import ProgressBar from "../components/ProgressBar";
+import Rooms from "./index";
+import ProgressBar from "../../components/ProgressBar";
+import { useTranslation } from "next-i18next";
+import nextI18NextConfig from "../../i18n/next-i18next.config";
+import type { GetServerSideProps, NextPage } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-const room = () => {
+
+const Room: NextPage<{
+  room: any;
+  queries:any;
+}> = ({room}) => {
+  const { t } = useTranslation(["input", "button", "common", "home", "room"]);
+  console.log(room);
   return (
     <div className="relative h-full w-full">
       <Layout>
@@ -27,7 +37,7 @@ const room = () => {
                 </Link>
                 <div className="relative flex w-full flex-col items-end gap-8 pb-20">
                   <div className="flex w-1/2 justify-end  border-b border-solid border-b-shade py-6 text-5xl font-extrabold text-tint">
-                    غرفة توأم
+                    
                   </div>
                   <div className="flex flex-row gap-20">
                     <div className="flex flex-col items-end gap-8 text-tint">
@@ -39,7 +49,7 @@ const room = () => {
                       <div className="text-xl">25 متر مربع</div>
                     </div>
                     <div className="flex flex-col items-end gap-8 text-tint">
-                      <div>عدد الضيوف </div>
+                      <div> عدد الضيوف</div>
                       <div className="text-xl">2</div>
                     </div>
                   </div>
@@ -69,7 +79,7 @@ const room = () => {
           </div>
           <div className="pt-20">
             <div className="flex justify-end text-5xl font-bold">
-              مرافق الغرفة{" "}
+              {t("room:room-facilities")}
             </div>
             <div className="flex flex-row justify-end gap-4 py-10">
               <div className="flex items-center justify-center border border-solid border-shade p-4 ">
@@ -110,7 +120,7 @@ const room = () => {
             </div>
             <div className="absolute inset-0 z-10 flex h-full w-full flex-col px-32 ">
               <div className="flex justify-end py-10 text-5xl font-bold">
-                مرافق الغرفة{" "}
+                {t("room:room-images")}
               </div>
               <div className="relative flex h-full w-full">
                 <Image
@@ -125,13 +135,13 @@ const room = () => {
         </section>
         <section>
           <div className="relative h-[60rem] w-full">
-            <Rooms />
+            <Rooms rooms={"rooms"} />
           </div>
         </section>
         <section className="px-32">
           <div className="relative flex h-full  w-full flex-col gap-2 border-b border-solid border-b-shade">
             <div className="flex justify-end  text-5xl font-bold">
-              مرافق الغرفة{" "}
+              {t("room:reviews")}
             </div>
             <div className="flex h-10 w-32 items-center justify-center bg-secondary text-xl font-semibold text-tint">
               اكتب تقييم
@@ -141,7 +151,7 @@ const room = () => {
                 <div className="flex w-1/2 flex-col gap-6">
                   <div className=" flex flex-col gap-1">
                     <label className="flex justify-end text-lg font-extrabold text-dark">
-                      طاقم العمل
+                      {t("room:facilities")}
                     </label>
                     <div className="flex flex-row items-center justify-end gap-2">
                       <div className="text-sm text-dark">8.5</div>
@@ -152,7 +162,7 @@ const room = () => {
                   </div>
                   <div className=" flex flex-col gap-1">
                     <label className="flex justify-end text-lg font-extrabold text-dark">
-                      طاقم العمل
+                      {t("room:comforts")}
                     </label>
                     <div className="flex flex-row items-center justify-end gap-2">
                       <div className="text-sm text-dark">8.5</div>
@@ -163,7 +173,7 @@ const room = () => {
                   </div>
                   <div className=" flex flex-col gap-1">
                     <label className="flex justify-end text-lg font-extrabold text-dark">
-                      طاقم العمل
+                      {t("room:location")}
                     </label>
                     <div className="flex flex-row items-center justify-end gap-2">
                       <div className="text-sm text-dark">8.5</div>
@@ -176,7 +186,7 @@ const room = () => {
                 <div className="flex w-1/2 flex-col gap-6 ">
                   <div className=" flex flex-col gap-1">
                     <label className="flex justify-end text-lg font-extrabold text-dark">
-                      طاقم العمل
+                    {t("room:crew")}
                     </label>
                     <div className="flex flex-row items-center justify-end gap-2">
                       <div className="text-sm text-dark">8.5</div>
@@ -187,7 +197,7 @@ const room = () => {
                   </div>
                   <div className=" flex flex-col gap-1">
                     <label className="flex justify-end text-lg font-extrabold text-dark">
-                      طاقم العمل
+                    {t("room:hygiene")}
                     </label>
                     <div className="flex flex-row items-center justify-end gap-2">
                       <div className="text-sm text-dark">8.5</div>
@@ -198,7 +208,7 @@ const room = () => {
                   </div>
                   <div className=" flex flex-col gap-1">
                     <label className="flex justify-end text-lg font-extrabold text-dark">
-                      طاقم العمل
+                    {t("room:value-for-price")}
                     </label>
                     <div className="flex flex-row items-center justify-end gap-2">
                       <div className="text-sm text-dark">8.5</div>
@@ -257,7 +267,7 @@ const room = () => {
                 <div className="flex h-10 w-12 items-center justify-center bg-primary text-lg font-bold text-tint">
                   8.0
                 </div>
-                <div className="flex flex-col gap-3 w-5/6">
+                <div className="flex w-5/6 flex-col gap-3">
                   <div className="text-end text-xs text-darkTint">
                     تم التقييم في اغسطس
                   </div>
@@ -309,7 +319,7 @@ const room = () => {
                 <div className="flex h-10 w-12 items-center justify-center bg-primary text-lg font-bold text-tint">
                   8.0
                 </div>
-                <div className="flex flex-col gap-3 w-5/6">
+                <div className="flex w-5/6 flex-col gap-3">
                   <div className="text-end text-xs text-darkTint">
                     تم التقييم في اغسطس
                   </div>
@@ -361,7 +371,7 @@ const room = () => {
                 <div className="flex h-10 w-12 items-center justify-center bg-primary text-lg font-bold text-tint">
                   8.0
                 </div>
-                <div className="flex flex-col gap-3 w-5/6">
+                <div className="flex w-5/6 flex-col gap-3">
                   <div className="text-end text-xs text-darkTint">
                     تم التقييم في اغسطس
                   </div>
@@ -413,7 +423,7 @@ const room = () => {
                 <div className="flex h-10 w-12 items-center justify-center bg-primary text-lg font-bold text-tint">
                   8.0
                 </div>
-                <div className="flex flex-col gap-3 w-5/6">
+                <div className="flex w-5/6 flex-col gap-3">
                   <div className="text-end text-xs text-darkTint">
                     تم التقييم في اغسطس
                   </div>
@@ -465,7 +475,7 @@ const room = () => {
                 <div className="flex h-10 w-12 items-center justify-center bg-primary text-lg font-bold text-tint">
                   8.0
                 </div>
-                <div className="flex flex-col gap-3 w-5/6">
+                <div className="flex w-5/6 flex-col gap-3">
                   <div className="text-end text-xs text-darkTint">
                     تم التقييم في اغسطس
                   </div>
@@ -517,7 +527,7 @@ const room = () => {
                 <div className="flex h-10 w-12 items-center justify-center bg-primary text-lg font-bold text-tint">
                   8.0
                 </div>
-                <div className="flex flex-col gap-3 w-5/6">
+                <div className="flex w-5/6 flex-col gap-3">
                   <div className="text-end text-xs text-darkTint">
                     تم التقييم في اغسطس
                   </div>
@@ -565,11 +575,23 @@ const room = () => {
               </div>
             </div>
           </div>
-          <div className="py-10">rijf</div>
+          <div className="py-10"></div>
         </section>
       </Layout>
     </div>
   );
 };
 
-export default room;
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(
+        context.locale as string,
+        ["input", "button", "common", "home", "room"],
+        nextI18NextConfig
+      )),
+    },
+  };
+};
+
+export default Room;

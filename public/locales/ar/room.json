@@ -1,1 +1,18 @@
-{}
+{
+    "number-of-guests":"عدد الضيوف",
+    "room-space":"مساحة الغرفة",
+    "number-of-beds":"عدد الأسرة",
+    "room-facilities":"مرافق الغرفة",
+    "room-images":"صور العرض",
+    "reviews":"المراجعات",
+    "crew":"طاقم العمل",
+    "hygiene":"النظافة",
+    "facilities":"المرافق",
+    "comforts":"الراحة",
+    "value-for-price":"القيمة مقابل السعر",
+    "location":"الموقع",
+    "filters":"المصفيات"
+
+
+
+}

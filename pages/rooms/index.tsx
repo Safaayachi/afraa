@@ -3,10 +3,14 @@ import Image from "next/image";
 import { Transition } from "@headlessui/react";
 import { useState } from "react";
 import Link from "next/link";
+import { GetStaticProps, NextPage, GetServerSideProps } from "next";
+import { useRoomTypes } from "../../hooks/useRoomTypes";
 
-const Rooms = () => {
+const Rooms: NextPage<{rooms: any}> = ({rooms}) => {
   const [isRoomsShowing, setRoomsShowing] = useState(false);
   const [isSuiteShowing, setSuiteShowing] = useState(false);
+  const{data, isLoading}=useRoomTypes();
+  console.log(data);
   return (
     <div className="absolute inset-0 z-10 h-full w-full px-8 lg:p-32">
       <div className="relative flex h-full w-full flex-col">
@@ -41,9 +45,21 @@ const Rooms = () => {
                 leaveTo="opacity-0"
               >
                 <div className="mt-32 flex flex-col items-center gap-2 text-lg">
-                  <Link passHref href={"/"}><div className="cursor-pointer">جناح جونيور</div></Link>
-                  <Link passHref href={"/"}><div className="cursor-pointer">جناح من غرفتين</div></Link>
-                  <Link passHref href={"/"}><div className="cursor-pointer">جناح عائلى</div></Link>
+                  { data?
+                    data.map((room:any, index: number) =>(
+                      
+                      <div key={index} className="cursor-pointer">
+                        <Link passHref href={
+                        {pathname:`/rooms/[slug]`,
+                         query:{
+                          slug:room.NameAr
+                         }
+                        }
+                      }><div>{room.NameAr}</div></Link>
+                      </div>
+                    )) :null
+                    
+                  }
                 </div>
               </Transition>
             </div>

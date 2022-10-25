@@ -1,8 +1,13 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
+import nextI18NextConfig from "../i18n/next-i18next.config";
+import type { GetStaticProps, NextPage } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-const contact = () => {
+const Contact: NextPage<{}> = () => {
+  const { t } = useTranslation(["input", "button", "common", "home"]);
   return (
     <>
       <Layout>
@@ -17,10 +22,10 @@ const contact = () => {
                 </Link>
                 <div className="flex flex-col gap-3">
                   <div className="flex justify-center text-sm font-extrabold text-secondary">
-                    طريق المسجد الحرام, الجامعة
+                    {t("common:address-p1")}
                   </div>
                   <div className="flex justify-center text-sm font-extrabold text-secondary">
-                    مكة 24211, المملكة العربية السعودية{" "}
+                    {t("common:address-p2")}
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -56,7 +61,7 @@ const contact = () => {
                   <form className="flex h-full w-full flex-col gap-4">
                     <fieldset className="flex flex-col gap-6">
                       <h1 className="flex justify-end text-2xl font-extrabold text-tint ">
-                        اتصل بنا
+                        {t("common:contact")}
                       </h1>
                       <div className="flex flex-col gap-4">
                         <div className="flex flex-col gap-4">
@@ -64,7 +69,7 @@ const contact = () => {
                             htmlFor="name"
                             className="flex justify-end text-darkTint"
                           >
-                            الاسم الكامل
+                            {t("input:full-name")}
                           </label>
                           <input
                             type="text"
@@ -77,7 +82,7 @@ const contact = () => {
                             htmlFor="email"
                             className="flex justify-end text-darkTint"
                           >
-                            البريد الإلكتروني
+                            {t("input:email")}
                           </label>
                           <input
                             type="email"
@@ -90,7 +95,7 @@ const contact = () => {
                             htmlFor="subject"
                             className="flex justify-end text-darkTint"
                           >
-                            الموضوع
+                            {t("input:subject")}
                           </label>
                           <input
                             type="text"
@@ -103,7 +108,7 @@ const contact = () => {
                             htmlFor="subject"
                             className="flex justify-end text-darkTint"
                           >
-                            الرسالة
+                            {t("input:message")}
                           </label>
                           <textarea
                             id="subject"
@@ -113,14 +118,14 @@ const contact = () => {
                       </div>
                     </fieldset>
                     <button className="flex w-full justify-center bg-tint py-3 font-extrabold text-secondary ">
-                      إرسال
+                      {t("input:send")}
                     </button>
                   </form>
                 </div>
               </div>
             </div>
           </section>
-          <section className="relative w-full h-[400px] ">
+          <section className="relative h-[400px] w-full ">
             <iframe
               className="h-full w-full"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12939.492122698986!2d10.585889550000001!3d35.827590799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd8b3a0237010f%3A0x4418fc1f1a3cb73f!2sPolytechnique%20Sousse!5e0!3m2!1sar!2stn!4v1663583094761!5m2!1sar!2stn"
@@ -131,5 +136,16 @@ const contact = () => {
     </>
   );
 };
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(
+        context.locale as string,
+        ["input", "button", "common", "home"],
+        nextI18NextConfig
+      )),
+    },
+  };
+};
 
-export default contact;
+export default Contact;

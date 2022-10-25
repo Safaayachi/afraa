@@ -2,9 +2,14 @@ import React from "react";
 import Layout from "../components/Layout";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
+import nextI18NextConfig from "../i18n/next-i18next.config";
+import type { GetStaticProps, NextPage } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import useForm from "react-hook-form";
 
-const login = () => {
+const Login: NextPage<{}> = () => {
+  const { t } = useTranslation(["input", "button", "common", "home"]);
   return (
     <>
       <Layout hasFooter={false}>
@@ -17,10 +22,10 @@ const login = () => {
                 </div>
               </Link>
               <h1 className="flex justify-center py-6 text-2xl font-bold text-dark">
-                تسجيل الدخول
+                {t("common:login")}
               </h1>
               <p className="flex justify-center text-xs text-darkTint">
-                باستخدام ملفك الشخصي علي شبكة التواصل الاجتماعى
+                {t("input:socials")}
               </p>
               <div className="flex justify-center border-b border-solid border-shade py-6">
                 <div className="relative flex flex-row gap-4 ">
@@ -49,7 +54,7 @@ const login = () => {
             </div>
             <div className="flex flex-col ">
               <p className="flex justify-center text-xs text-darkTint">
-                بواسطة بريدك الالكترونى
+                {t("input:via-email")}
               </p>
               <form>
                 <fieldset>
@@ -58,7 +63,7 @@ const login = () => {
                       htmlFor="email"
                       className="flex justify-end text-xs text-dark"
                     >
-                      البريد الالكترونى الخاص بك
+                      {t("input:email")}
                     </label>
                     <input
                       className="flex border border-solid border-shade p-3 text-end text-dark"
@@ -71,7 +76,7 @@ const login = () => {
                       htmlFor="password"
                       className="flex justify-end text-xs text-dark"
                     >
-                      كلمة المرور
+                      {t("input:password")}
                     </label>
                     <div className="relative flex h-12 w-full flex-row border border-solid border-shade">
                       <i className="icon-visibility_black_24dp font-xs flex cursor-pointer items-center px-2 text-xl text-darkTint"></i>
@@ -86,7 +91,7 @@ const login = () => {
                         htmlFor="rememberMe"
                         className="flex justify-end text-xs text-dark"
                       >
-                        تذكرنى
+                        {t("input:remember-me")}
                       </label>
                       <input
                         type="checkbox"
@@ -97,32 +102,32 @@ const login = () => {
                   </div>
                 </fieldset>
                 <button className="flex w-full justify-center bg-secondary py-3 text-lg font-bold text-tint">
-                  تسجيل الدخول{" "}
+                  {t("common:login")}
                 </button>
               </form>
               <div className="relative flex w-full flex-row justify-between py-4">
                 <Link passHref href={"/"}>
                   <div className="cursor-pointer text-xs font-bold text-primary underline">
-                    هل نسيت كلمة المرور؟
+                    {t("input:forgot-password")}
                   </div>
                 </Link>
                 <Link passHref href={"/register"}>
                   <div className="cursor-pointer text-xs font-bold text-primary underline">
-                    إنشاء حساب الان
+                  {t("common:sign-up")}
                   </div>
                 </Link>
               </div>
               <div className="flex w-full justify-end">
                 <p className="mt-4 text-center text-xs  text-dark">
-                  تسجيلك الدخول يعني موافقتك على{" "}
+                {t("input:accept-terms-conditions")}
                   <span className="font-bold text-primary underline">
-                    <Link href="/">شروط الاستخدام</Link>
+                    <Link href="/">{t("common:terms-of-use")}</Link>
                   </span>{" "}
                   و{" "}
                   <span className="font-bold text-primary underline">
-                    <Link href="/">سياسة الخصوصية </Link>
+                    <Link href="/">{t("common:privacy-policy")}</Link>
                   </span>{" "}
-                  فندق عفراء
+                  {t("common:aafra-hotel")}
                 </p>
               </div>
             </div>
@@ -132,5 +137,15 @@ const login = () => {
     </>
   );
 };
-
-export default login;
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(
+        context.locale as string,
+        ["input", "button", "common", "home"],
+        nextI18NextConfig
+      )),
+    },
+  };
+};
+export default Login;

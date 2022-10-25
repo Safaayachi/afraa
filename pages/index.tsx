@@ -2,7 +2,7 @@ import Image from "next/image";
 import Layout from "../components/Layout";
 import RoomsSearch from "../components/RoomsSearch";
 import Services from "../components/Services";
-import Rooms from "./rooms";
+import Rooms from "./rooms/index";
 import { useTranslation } from "next-i18next";
 import nextI18NextConfig from "../i18n/next-i18next.config";
 import type { GetStaticProps, NextPage } from "next";
