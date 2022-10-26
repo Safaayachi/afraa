@@ -88,7 +88,7 @@ const Home: NextPage<{}> = () => {
               <div className="h-1/2 w-full bg-shade"></div>
               <div className="h-1/2 w-full bg-tint"></div>
             </div>
-            <Rooms />
+            <Rooms rooms={undefined} />
           </div>
         </section>
         <section>
