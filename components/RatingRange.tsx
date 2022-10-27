@@ -3,7 +3,6 @@ import { useState } from "react";
 
 const RatingRange = () => {
   const [rate, setRate] = useState(0);
-  console.log(rate);
   return (
     <div className="flex flex-row items-center">
       <div
@@ -14,7 +13,7 @@ const RatingRange = () => {
           <div className="flex h-24 items-end">
           <div className="flex flex-col gap-2 ">
             <div>
-              <div className=" flex h-8 w-7 items-center justify-center bg-primary text-sm font-bold text-tint">
+              <div className=" flex h-7 w-7 items-center justify-center bg-primary text-sm font-bold text-tint">
                 10
               </div>
               <div className="w-7 flex justify-center"><div className="border-x-8 border-t-8 border-b-0 border-solid border-x-transparent border-t-primary"></div></div>
@@ -47,7 +46,7 @@ const RatingRange = () => {
           <div className="flex h-24 items-end">
           <div className="flex flex-col gap-2 ">
             <div>
-              <div className=" flex h-8 w-7 items-center justify-center bg-primary text-sm font-bold text-tint">
+              <div className=" flex h-7 w-7 items-center justify-center bg-primary text-sm font-bold text-tint">
                 9
               </div>
               <div className="w-7 flex justify-center"><div className="border-x-8 border-t-8 border-b-0 border-solid border-x-transparent border-t-primary"></div></div>
@@ -92,7 +91,7 @@ const RatingRange = () => {
           <div className="flex h-24 items-end">
           <div className="flex flex-col gap-2 ">
             <div>
-              <div className=" flex h-8 w-7 items-center justify-center bg-primary text-sm font-bold text-tint">
+              <div className=" flex h-7 w-7 items-center justify-center bg-primary text-sm font-bold text-tint">
                 8
               </div>
               <div className="w-7 flex justify-center"><div className="border-x-8 border-t-8 border-b-0 border-solid border-x-transparent border-t-primary"></div></div>
@@ -137,7 +136,7 @@ const RatingRange = () => {
           <div className="flex h-24 items-end">
           <div className="flex flex-col gap-2 ">
             <div>
-              <div className=" flex h-8 w-7 items-center justify-center bg-primary text-sm font-bold text-tint">
+              <div className=" flex h-7 w-7 items-center justify-center bg-primary text-sm font-bold text-tint">
                 7
               </div>
               <div className="w-7 flex justify-center"><div className="border-x-8 border-t-8 border-b-0 border-solid border-x-transparent border-t-primary"></div></div>
@@ -182,7 +181,7 @@ const RatingRange = () => {
           <div className="flex h-24 items-end">
           <div className="flex flex-col gap-2 ">
             <div>
-              <div className=" flex h-8 w-7 items-center justify-center bg-primary text-sm font-bold text-tint">
+              <div className=" flex h-7 w-7 items-center justify-center bg-primary text-sm font-bold text-tint">
                 6
               </div>
               <div className="w-7 flex justify-center"><div className="border-x-8 border-t-8 border-b-0 border-solid border-x-transparent border-t-primary"></div></div>
@@ -227,7 +226,7 @@ const RatingRange = () => {
           <div className="flex h-24 items-end">
           <div className="flex flex-col gap-2 ">
             <div>
-              <div className=" flex h-8 w-7 items-center justify-center bg-primary text-sm font-bold text-tint">
+              <div className=" flex h-7 w-7 items-center justify-center bg-primary text-sm font-bold text-tint">
                 5
               </div>
               <div className="w-7 flex justify-center"><div className="border-x-8 border-t-8 border-b-0 border-solid border-x-transparent border-t-primary"></div></div>
@@ -405,7 +404,7 @@ const RatingRange = () => {
             <div className="flex flex-col gap-2">
             <div>
                 <div className=" flex h-7 w-7 items-center justify-center bg-primary text-sm font-bold text-tint">
-                  2
+                  1
                 </div>
                 <div className="w-7 flex justify-center"><div className="border-x-8 border-t-8 border-b-0 border-solid border-x-transparent border-t-primary"></div></div>
               </div>

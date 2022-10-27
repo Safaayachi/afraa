@@ -9,22 +9,71 @@ import type { GetStaticProps, NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const Rating: NextPage<{}> = () => {
-  const { t, i18n } = useTranslation(["home"]);
+  const { t, i18n } = useTranslation(["home", "room"]);
   return (
     <>
       <Layout>
-        <div className="h-[800px] pt-24 px-20">
-          <div className="flex flex-col items-center gap-10 lg:flex-row lg:justify-between w-full ">
-            <div className="flex flex-col gap-4">
-              <RatingRange />
-              <RatingRange />
-              <RatingRange />
+        <div className="px-20 py-24">
+          <Link passHref href={"/search"}>
+            <div className="flex justify-end py-2">
+              <i className="icon-keyboard_backspace_black_24dp cursor-pointer text-xl font-bold text-dark"></i>
             </div>
-            <div className="flex flex-col gap-4">
-              <RatingRange />
-              <RatingRange />
-              <RatingRange />
+          </Link>
+          <div className="flex justify-end  py-6 text-3xl font-extrabold text-dark">
+            تقييم
+          </div>
+          <div className="flex w-full flex-col  items-center gap-10 lg:flex-row lg:justify-between ">
+            <div className="flex flex-col gap-4 items-end">
+              <div className="flex flex-col">
+                <div className="flex justify-end  text-md font-bold text-dark">
+                  {t("room:facilities")}
+                </div>
+                <RatingRange />
+              </div>
+              <div className="flex flex-col">
+                <div className="flex justify-end  text-md font-bold text-dark">
+                  {t("room:comforts")}
+                </div>
+                <RatingRange />
+              </div>
+              <div className="flex flex-col">
+                <div className="flex justify-end  text-md font-bold text-dark">
+                  {t("room:location")}
+                </div>
+                <RatingRange />
+              </div>
             </div>
+            <div className="flex flex-col gap-4 items-end">
+              <div className="flex flex-col">
+                <div className="flex justify-end  text-md font-bold text-dark">
+                  {t("room:crew")}
+                </div>
+                <RatingRange />
+              </div>
+              <div className="flex flex-col">
+                <div className="flex justify-end  text-md font-bold text-dark">
+                  {t("room:hygiene")}
+                </div>
+                <RatingRange />
+              </div>
+              <div className="flex flex-col">
+                <div className="flex justify-end  text-md font-bold text-dark">
+                  {t("room:value-for-price")}
+                </div>
+                <RatingRange />
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-end  py-4 text-lg font-bold text-dark">
+            تعليقك
+          </div>
+          <textarea
+            name=""
+            id=""
+            className="h-40 w-full border border-solid border-darkTint text-end"
+          ></textarea>
+          <div className="flex w-full justify-start py-4">
+            <div className="bg-primary px-12 py-3 font-bold text-tint">حفظ</div>
           </div>
         </div>
       </Layout>
@@ -36,7 +85,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       ...(await serverSideTranslations(
         context.locale as string,
-        ["home", "common", "input"],
+        ["home", "common", "input","room"],
         nextI18NextConfig
       )),
     },
