@@ -7,6 +7,7 @@ import LangDrop from "./lang-drop";
 import { useTranslation } from "next-i18next";
 
 const Header = () => {
+  const [showMenu, setShowMenu] = useState(false);
   const [ratingModal, setRatingModal] = useState(false);
   const { t } = useTranslation(["common", "input", "home"]);
   const router = useRouter();
@@ -32,10 +33,53 @@ const Header = () => {
               </div>
             </Link>
           </div>
-          <div className="flex h-full w-1/6 cursor-pointer items-center justify-center border-l border-solid border-shade">
-            <i className="icon-menu_black_24dp-6 font-md text-3xl text-secondary"></i>
-          </div>
+          <button className="flex h-full w-1/6 cursor-pointer items-center justify-center border-l border-solid border-shade">
+            <i
+              className="icon-menu_black_24dp-6 font-md text-3xl text-secondary"
+              onClick={showMenu? (() => setShowMenu(false)):(() => setShowMenu(true))}
+            ></i>
+          </button>
         </nav>
+        {showMenu ? (
+          <>
+            <div
+              onClick={() => setShowMenu(false)}
+              className="fixed z-10 h-full w-full  bg-secondary opacity-40 lg:hidden "
+            ></div>
+            <div className="fixed right-0 z-20 flex h-full w-3/5  justify-end bg-tint px-6 pt-28 md:w-1/2 lg:hidden ">
+              <div className="flex flex-col gap-14">
+                <div className="flex flex-col gap-8 ">
+                  <Link passHref href={"/Rooms"}>
+                    <div className="flex cursor-pointer items-center justify-end text-lg font-extrabold">
+                      {t("home:rooms-and-suites")}
+                    </div>
+                  </Link>
+                  <Link passHref href={"/"}>
+                    <div className="flex cursor-pointer items-center justify-end text-lg font-extrabold ">
+                      {t("common:reservations")}
+                    </div>
+                  </Link>
+                  <Link passHref href={"/"}>
+                    <div className="flex cursor-pointer items-center justify-end text-lg font-extrabold ">
+                      {t("common:terms-and-conditions")}
+                    </div>
+                  </Link>
+                  <Link passHref href={"/"}>
+                    <div className="flex cursor-pointer items-center justify-end text-lg font-extrabold ">
+                      {t("common:privacy")}
+                    </div>
+                  </Link>
+                  <Link passHref href={"/contact"}>
+                    <div className="flex cursor-pointer items-center justify-end text-lg font-extrabold ">
+                      {t("common:contact")}
+                    </div>
+                  </Link>
+                </div>
+                <LangDrop />
+              </div>
+            </div>
+          </>
+        ) : null}
         <nav
           className={`relative hidden h-20 w-full flex-row justify-between border-shade lg:flex ${
             router.pathname === "/room" ? "" : "bg-tint"
@@ -178,7 +222,7 @@ const Header = () => {
                       </div>
                     </div>
                     <Link passHref href={"/rating"}>
-                      <div className="flex h-12 items-center cursor-pointer justify-center bg-primary text-lg font-bold text-tint">
+                      <div className="flex h-12 cursor-pointer items-center justify-center bg-primary text-lg font-bold text-tint">
                         {t("input:rate-stay")}
                       </div>
                     </Link>

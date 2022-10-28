@@ -10,7 +10,6 @@ const Rooms: NextPage<{rooms: any}> = ({rooms}) => {
   const [isRoomsShowing, setRoomsShowing] = useState(false);
   const [isSuiteShowing, setSuiteShowing] = useState(false);
   const{data, isLoading}=useRoomTypes();
-  console.log(data);
   return (
     <div className="absolute inset-0 z-10 h-full w-full px-8 lg:p-32">
       <div className="relative flex h-full w-full flex-col">
@@ -52,7 +51,9 @@ const Rooms: NextPage<{rooms: any}> = ({rooms}) => {
                         <Link passHref href={
                         {pathname:`/rooms/[slug]`,
                          query:{
-                          slug:room.NameAr
+                          slug:room.NameAr,
+                          id:room.Id,
+                          
                          }
                         }
                       }><div>{room.NameAr}</div></Link>

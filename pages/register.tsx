@@ -116,7 +116,7 @@ const Register: NextPage<{}> = () => {
                           /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
                       })}
                     />
-                    {errors.LastName && (
+                    {errors.UserName && (
                       <div className="text-xxs text-end text-danger">wrong</div>
                     )}
                   </div>
@@ -136,7 +136,7 @@ const Register: NextPage<{}> = () => {
                         {...register("Password", { required: true })}
                       />
                     </div>
-                    {errors.LastName && (
+                    {errors.Password && (
                       <div className="text-xxs text-end text-danger">wrong</div>
                     )}
 
@@ -156,7 +156,7 @@ const Register: NextPage<{}> = () => {
                           pattern: /^[A-Za-z]+$/i,
                         })}
                       />
-                      {errors.LastName && (
+                      {errors.FirstName && (
                         <div className="text-xxs text-end text-danger">
                           wrong
                         </div>
@@ -187,7 +187,7 @@ const Register: NextPage<{}> = () => {
                   </div>
                 </fieldset>
                 <button
-                  className="flex w-full justify-center bg-secondary py-3 text-lg font-bold text-tint"
+                  className="flex w-full justify-center cursor-pointer bg-secondary py-3 text-lg font-bold text-tint"
                   type="button"
                 >
                   {t("common:sign-up")}
@@ -196,7 +196,7 @@ const Register: NextPage<{}> = () => {
               <div className="relative flex w-full  justify-start py-4">
                 <Link passHref href={"/login"}>
                   <div className="cursor-pointer text-xs font-bold text-primary underline">
-                  {t("input:already-have-account")}
+                    {t("input:already-have-account")}
                   </div>
                 </Link>
               </div>

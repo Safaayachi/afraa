@@ -23,20 +23,21 @@ const LangDrop = () => {
         onClick={() => {
           changeLanguage(i18n.language === "ar" ? "en" : "ar");
         }}
+        
         className=""
       >
         {i18n.language === "ar" ? (
           <div
-            className={`flex h-full w-56 cursor-pointer items-center justify-center border-l border-solid border-shade text-sm font-bold ${
-              router.pathname === "/room" ? "text-tint" : "text-secondary"
+            className={`flex h-full w-56 cursor-pointer items-center justify-end lg:justify-center lg:border-l lg:border-solid lg:border-shade text-lg font-extrabold lg:text-sm lg:font-bold ${
+              router.pathname === "/room" ? "text-tint" : ""
             }`}
           >
             عربية
           </div>
         ) : (
           <div
-            className={`flex h-full w-56 cursor-pointer items-center justify-center border-l border-solid border-shade text-sm font-bold ${
-              router.pathname === "/room" ? "text-tint" : "text-secondary"
+            className={`flex h-full w-56 cursor-pointer items-center justify-end lg:justify-center lg:border-l lg:border-solid lg:border-shade text-lg font-extrabold lg:text-sm lg:font-bold ${
+              router.pathname === "/room" ? "text-tint" : ""
             }`}
           >
             English

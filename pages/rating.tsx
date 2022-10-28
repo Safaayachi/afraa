@@ -73,7 +73,7 @@ const Rating: NextPage<{}> = () => {
             className="h-40 w-full border border-solid border-darkTint text-end"
           ></textarea>
           <div className="flex w-full justify-start py-4">
-            <div className="bg-primary px-12 py-3 font-bold text-tint">حفظ</div>
+            <div className="bg-primary px-12 py-3 font-bold text-tint cursor-pointer">حفظ</div>
           </div>
         </div>
       </Layout>

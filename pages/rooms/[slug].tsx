@@ -8,14 +8,20 @@ import { useTranslation } from "next-i18next";
 import nextI18NextConfig from "../../i18n/next-i18next.config";
 import type { GetServerSideProps, NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
+import { Router, useRouter } from "next/router";
+import { useRoomTypes } from "../../hooks/useRoomTypes";
 
 const Room: NextPage<{
   room: any;
-  queries:any;
-}> = ({room}) => {
+  queries: any;
+}> = ({ room, queries }) => {
   const { t } = useTranslation(["input", "button", "common", "home", "room"]);
-  console.log(room);
+  const router = useRouter();
+  const roomName = router.query.slug;
+  const Id = router.query.id;
+  const { data, isLoading } = useRoomTypes();
+
+  console.log(data[Id - 1]);
   return (
     <div className="relative h-full w-full">
       <Layout>
@@ -37,20 +43,20 @@ const Room: NextPage<{
                 </Link>
                 <div className="relative flex w-full flex-col items-end gap-8 pb-20">
                   <div className="flex w-1/2 justify-end  border-b border-solid border-b-shade py-6 text-5xl font-extrabold text-tint">
-                    
+                    {roomName}
                   </div>
                   <div className="flex flex-row gap-20">
                     <div className="flex flex-col items-end gap-8 text-tint">
                       <div>عدد الاسرة</div>
-                      <div className="text-xl">2 سرير فردي </div>
+                      <div className="text-xl">{data[Id - 1].BedsNumber}</div>
                     </div>
                     <div className="flex flex-col items-end gap-8 text-tint ">
                       <div>مساحة الغرفة</div>
-                      <div className="text-xl">25 متر مربع</div>
+                      <div className="text-xl">{data[Id - 1].Surface}</div>
                     </div>
                     <div className="flex flex-col items-end gap-8 text-tint">
                       <div> عدد الضيوف</div>
-                      <div className="text-xl">2</div>
+                      <div className="text-xl">{data[Id - 1].Capacity}</div>
                     </div>
                   </div>
                 </div>
@@ -143,9 +149,11 @@ const Room: NextPage<{
             <div className="flex justify-end  text-5xl font-bold">
               {t("room:reviews")}
             </div>
-            <div className="flex h-10 w-32 items-center justify-center bg-secondary text-xl font-semibold text-tint">
-              اكتب تقييم
-            </div>
+            <Link passHref href={"../rating"}>
+              <div className=" cursor-pointer flex h-10 w-32 items-center justify-center bg-secondary text-xl font-semibold text-tint">
+                اكتب تقييم
+              </div>
+            </Link>
             <div className="flex w-full flex-row justify-end py-10">
               <div className="relative flex w-1/2 flex-row justify-end gap-6">
                 <div className="flex w-1/2 flex-col gap-6">
@@ -186,7 +194,7 @@ const Room: NextPage<{
                 <div className="flex w-1/2 flex-col gap-6 ">
                   <div className=" flex flex-col gap-1">
                     <label className="flex justify-end text-lg font-extrabold text-dark">
-                    {t("room:crew")}
+                      {t("room:crew")}
                     </label>
                     <div className="flex flex-row items-center justify-end gap-2">
                       <div className="text-sm text-dark">8.5</div>
@@ -197,7 +205,7 @@ const Room: NextPage<{
                   </div>
                   <div className=" flex flex-col gap-1">
                     <label className="flex justify-end text-lg font-extrabold text-dark">
-                    {t("room:hygiene")}
+                      {t("room:hygiene")}
                     </label>
                     <div className="flex flex-row items-center justify-end gap-2">
                       <div className="text-sm text-dark">8.5</div>
@@ -208,7 +216,7 @@ const Room: NextPage<{
                   </div>
                   <div className=" flex flex-col gap-1">
                     <label className="flex justify-end text-lg font-extrabold text-dark">
-                    {t("room:value-for-price")}
+                      {t("room:value-for-price")}
                     </label>
                     <div className="flex flex-row items-center justify-end gap-2">
                       <div className="text-sm text-dark">8.5</div>

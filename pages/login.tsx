@@ -3,13 +3,55 @@ import Layout from "../components/Layout";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
+import { useLocalStorage } from "react-use";
 import nextI18NextConfig from "../i18n/next-i18next.config";
 import type { GetStaticProps, NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import useForm from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useRouter } from "next/router";
+
+type Inputs = {
+  UserName: string;
+  Password: string;
+};
 
 const Login: NextPage<{}> = () => {
   const { t } = useTranslation(["input", "button", "common", "home"]);
+  const [user, setUser, removeUser] = useLocalStorage("user");
+  const [token, setToken, removeToken] = useLocalStorage("token", "" || null);
+  const router = useRouter();
+  const {
+    register,
+    formState: { errors, isValid },
+    handleSubmit,
+  } = useForm<Inputs>({
+    reValidateMode: "onChange",
+    mode: "all",
+  });
+  const onSubmit: SubmitHandler<Inputs> = async (formData) => {
+    if (isValid) {
+      const options = {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      };
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API}/account/Login`,
+          options
+        );
+        const data = await res.json();
+        if (data.success) {
+          setUser(data.user);
+          setToken(data.token);
+          router.push({ pathname: "/" });
+        }
+      } catch (err) {}
+    }
+  };
   return (
     <>
       <Layout hasFooter={false}>
@@ -56,7 +98,7 @@ const Login: NextPage<{}> = () => {
               <p className="flex justify-center text-xs text-darkTint">
                 {t("input:via-email")}
               </p>
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <fieldset>
                   <div className="flex flex-col gap-2 py-4">
                     <label
@@ -69,7 +111,13 @@ const Login: NextPage<{}> = () => {
                       className="flex border border-solid border-shade p-3 text-end text-dark"
                       type="email"
                       id="email"
+                      {...register("UserName", {
+                        required: true,
+                      })}
                     />
+                    {errors.UserName && (
+                      <div className="text-xxs text-danger">wrong</div>
+                    )}
                   </div>
                   <div className="flex flex-col gap-2 py-4">
                     <label
@@ -84,7 +132,15 @@ const Login: NextPage<{}> = () => {
                         className="flex  w-full text-end text-dark"
                         type="password"
                         id="password"
+                        {...register("Password", {
+                          required: true,
+                        })}
                       />
+                      {errors.Password && (
+                        <div className="text-xxs text-danger">
+                          {t("validation:fill-all-fields")}
+                        </div>
+                      )}
                     </div>
                     <div className="flex flex-row items-center justify-end gap-2 py-4">
                       <label
@@ -106,20 +162,20 @@ const Login: NextPage<{}> = () => {
                 </button>
               </form>
               <div className="relative flex w-full flex-row justify-between py-4">
-                <Link passHref href={"/"}>
+                <Link passHref href={"/forgot"}>
                   <div className="cursor-pointer text-xs font-bold text-primary underline">
                     {t("input:forgot-password")}
                   </div>
                 </Link>
                 <Link passHref href={"/register"}>
                   <div className="cursor-pointer text-xs font-bold text-primary underline">
-                  {t("common:sign-up")}
+                    {t("common:sign-up")}
                   </div>
                 </Link>
               </div>
-              <div className="flex w-full justify-end">
+              <div className="flex w-full justify-end ">
                 <p className="mt-4 text-center text-xs  text-dark">
-                {t("input:accept-terms-conditions")}
+                  {t("input:accept-terms-conditions")} 
                   <span className="font-bold text-primary underline">
                     <Link href="/">{t("common:terms-of-use")}</Link>
                   </span>{" "}

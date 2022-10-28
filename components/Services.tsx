@@ -46,7 +46,7 @@ const Services = () => {
                   <div className="text-3xl font-bold text-dark">
                     مطاعم و مقاهي
                   </div>
-                  <div className="text-end text-jbxl  text-dark">
+                  <div className="text-end text-xl  text-dark">
                     عيش التجربة و استمتع بالخيرات الكثيرة المتاحة من خلال مطاعم
                     ومقاهي عفراء التى تقدم لكم أفضل المؤكولات و المشروبات
                     المميزة
