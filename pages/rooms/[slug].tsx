@@ -18,10 +18,8 @@ const Room: NextPage<{
   const { t } = useTranslation(["input", "button", "common", "home", "room"]);
   const router = useRouter();
   const roomName = router.query.slug;
-  const Id = router.query.id;
+  const id = router.query.id;
   const { data, isLoading } = useRoomTypes();
-
-  console.log(data[Id - 1]);
   return (
     <div className="relative h-full w-full">
       <Layout>
@@ -35,28 +33,28 @@ const Room: NextPage<{
                 objectFit="cover"
               ></Image>
               <div className="absolute z-10 h-full w-full bg-black opacity-50"></div>
-              <div className="absolute z-10 flex h-full w-full flex-col items-end justify-between px-32 pt-28">
+              <div className="absolute z-10 flex h-full w-full flex-col justify-between px-8 pt-28 lg:items-end lg:px-32">
                 <Link passHref href={"/search"}>
                   <div className="flex justify-end py-2">
                     <i className="icon-keyboard_backspace_black_24dp cursor-pointer text-xl  text-white"></i>
                   </div>
                 </Link>
                 <div className="relative flex w-full flex-col items-end gap-8 pb-20">
-                  <div className="flex w-1/2 justify-end  border-b border-solid border-b-shade py-6 text-5xl font-extrabold text-tint">
+                  <div className="flex w-1/2 justify-end border-b border-solid  border-b-shade py-6 text-end text-4xl font-extrabold text-tint lg:text-5xl">
                     {roomName}
                   </div>
-                  <div className="flex flex-row gap-20">
+                  <div className="flex flex-col gap-20 lg:flex-row">
                     <div className="flex flex-col items-end gap-8 text-tint">
                       <div>عدد الاسرة</div>
-                      <div className="text-xl">{data[Id - 1].BedsNumber}</div>
+                      <div className="text-xl">{data[id - 1].BedsNumber}</div>
                     </div>
                     <div className="flex flex-col items-end gap-8 text-tint ">
                       <div>مساحة الغرفة</div>
-                      <div className="text-xl">{data[Id - 1].Surface}</div>
+                      <div className="text-xl">{data[id - 1].Surface}</div>
                     </div>
                     <div className="flex flex-col items-end gap-8 text-tint">
                       <div> عدد الضيوف</div>
-                      <div className="text-xl">{data[Id - 1].Capacity}</div>
+                      <div className="text-xl">{data[id - 1].Capacity}</div>
                     </div>
                   </div>
                 </div>
@@ -64,9 +62,9 @@ const Room: NextPage<{
             </div>
           </div>
         </div>
-        <section className="relative h-full w-full bg-tint px-32 py-10">
-          <div className="relative flex h-[400px] w-full flex-row justify-between gap-10 ">
-            <div className="relative w-[400px] ">
+        <section className="relative h-full w-full bg-tint px-8 py-10 lg:px-32">
+          <div className="relative flex h-[400px] w-full flex-col-reverse justify-between gap-10 lg:flex-row ">
+            <div className="relative h-full w-full lg:w-[400px] ">
               <Image
                 alt="afraa-hotel"
                 src="/images/tv.png"
@@ -74,7 +72,7 @@ const Room: NextPage<{
                 objectFit="cover"
               ></Image>
             </div>
-            <div className="flex w-1/2 items-center justify-end">
+            <div className="flex items-center justify-end lg:w-1/2">
               <div className="text-end text-sm leading-8 text-dark">
                 فندق عفراء يقدم لك مجموعة متنوعة و مميزة من الغرف و الأجنحة التي
                 تبلغ 470 غرفةو التي تناسب ذوقك لمزيد من الراحة و الرفاهية. و
@@ -84,7 +82,7 @@ const Room: NextPage<{
             </div>
           </div>
           <div className="pt-20">
-            <div className="flex justify-end text-5xl font-bold">
+            <div className="flex justify-end text-4xl font-extrabold text-dark lg:text-5xl">
               {t("room:room-facilities")}
             </div>
             <div className="flex flex-row justify-end gap-4 py-10">
@@ -119,13 +117,13 @@ const Room: NextPage<{
           </div>
         </section>
         <section className="pb-20">
-          <div className="relative h-[50rem] w-full">
+          <div className="relative h-[35rem] w-full lg:h-[45rem]">
             <div className="relative h-full w-full">
               <div className="h-1/2 w-full bg-shade"></div>
               <div className="h-1/2 w-full bg-tint"></div>
             </div>
-            <div className="absolute inset-0 z-10 flex h-full w-full flex-col px-32 ">
-              <div className="flex justify-end py-10 text-5xl font-bold">
+            <div className="absolute inset-0 z-10 flex h-full w-full flex-col px-8 lg:px-32 ">
+              <div className="flex justify-end py-10 text-4xl font-extrabold text-dark lg:text-5xl ">
                 {t("room:room-images")}
               </div>
               <div className="relative flex h-full w-full">
@@ -139,18 +137,18 @@ const Room: NextPage<{
             </div>
           </div>
         </section>
-        <section>
+        <section className="pb-32 lg:pb-0">
           <div className="relative h-[60rem] w-full">
             <Rooms rooms={"rooms"} />
           </div>
         </section>
-        <section className="px-32">
-          <div className="relative flex h-full  w-full flex-col gap-2 border-b border-solid border-b-shade">
-            <div className="flex justify-end  text-5xl font-bold">
+        <section className="px-32 hidden lg:flex flex-col">
+          <div className="relative  h-full w-full  flex-col gap-2 border-b border-solid border-b-shade ">
+            <div className="flex justify-end text-5xl font-extrabold text-dark">
               {t("room:reviews")}
             </div>
             <Link passHref href={"../rating"}>
-              <div className=" cursor-pointer flex h-10 w-32 items-center justify-center bg-secondary text-xl font-semibold text-tint">
+              <div className=" flex h-10 w-32 cursor-pointer items-center justify-center bg-secondary text-xl font-semibold text-tint">
                 اكتب تقييم
               </div>
             </Link>
