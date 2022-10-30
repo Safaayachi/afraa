@@ -1,0 +1,14 @@
+{
+    "booking-information":"معلومات الحجز",
+    "tax":"ضريبة القيمة المضافة %15",
+    "period":"المدة",
+    "total":"الإجمالي",
+    "currency":"ريال",
+    "go-back":"راجع حجزك",
+    "next":"التالى",
+    "booking-success":"لقد تم الحجز بنجاح",
+    "booking-success-description":"لقد تم الحجز بنجاح ستصلك رسالة بتفاصيل الحجز و موعيد الحجز",
+    "booking-success-btn":"موافق",
+    "host-information":"بيانات الضيف"
+
+}

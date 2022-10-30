@@ -36,7 +36,9 @@ const Header = () => {
           <button className="flex h-full w-1/6 cursor-pointer items-center justify-center border-l border-solid border-shade">
             <i
               className="icon-menu_black_24dp-6 font-md text-3xl text-secondary"
-              onClick={showMenu? (() => setShowMenu(false)):(() => setShowMenu(true))}
+              onClick={
+                showMenu ? () => setShowMenu(false) : () => setShowMenu(true)
+              }
             ></i>
           </button>
         </nav>
@@ -165,71 +167,73 @@ const Header = () => {
           <LangDrop />
         </nav>
         {ratingModal ? (
-          <div className="absolute inset-0 z-10 flex min-h-screen w-full items-center justify-center  bg-darkTint bg-opacity-50">
-            <div className="absolute inset-0 z-10 flex  items-center justify-center">
-              <div className="relative h-[500px] w-[500px] bg-tint p-2">
-                <div className="flex flex-col">
-                  <div
-                    className="hidden justify-start lg:flex"
-                    onClick={() => setRatingModal(false)}
-                  >
-                    <i className="icon-close_black_24dp font-xs flex cursor-pointer items-center px-2 text-xl text-dark"></i>
-                  </div>
+          <div className="fixed inset-0 z-40  h-full w-full">
+            <div className="fixed inset-0 z-40 flex h-full w-full flex-col items-center justify-center p-4">
+            <div
+                  className="fixed inset-0 z-40 h-full w-full bg-dark opacity-50 "
+                  onClick={() => setRatingModal(false)}
+                ></div>
+              <div className="h-112 fixed z-40 flex w-5/6 flex-col bg-tint  p-4 lg:w-2/5">
+                <div
+                  className="justify-start"
+                  onClick={() => setRatingModal(false)}
+                >
+                  <i className="icon-close_black_24dp font-xs flex cursor-pointer items-center px-2 text-xl text-dark"></i>
+                </div>
 
-                  <div className="flex flex-col gap-6 px-10">
-                    <div className="flex justify-center py-2  text-2xl font-bold text-dark">
-                      {t("input:reservation-details")}
-                    </div>
-                    <div className="flex justify-center  text-center text-sm text-dark ">
-                      {t("input:reservation-number-verification")}
-                    </div>
-                    <div className="flex flex-col ">
-                      <label
-                        htmlFor="resNumber"
-                        className="flex justify-end py-3 text-sm text-darkTint"
-                      >
-                        {t("input:reservation-number")}
+                <div className="flex flex-col gap-6 px-10">
+                  <div className="flex justify-center py-2  text-2xl font-bold text-dark">
+                    {t("input:reservation-details")}
+                  </div>
+                  <div className="flex justify-center  text-center text-sm text-dark ">
+                    {t("input:reservation-number-verification")}
+                  </div>
+                  <div className="flex flex-col ">
+                    <label
+                      htmlFor="resNumber"
+                      className="flex justify-end py-3 text-sm text-darkTint"
+                    >
+                      {t("input:reservation-number")}
+                    </label>
+                    <input
+                      type="text"
+                      id="reNumber"
+                      className="h-12 w-full border border-solid border-shade p-2 text-end text-sm text-dark"
+                      placeholder="رقم الحجز"
+                    />
+                  </div>
+                  <div className="flex flex-row gap-6 ">
+                    <div className="flex w-1/2 flex-col gap-3">
+                      <label className="text-end text-sm text-darkTint">
+                        {t("input:departure-date")}
                       </label>
-                      <input
-                        type="text"
-                        id="reNumber"
-                        className="h-12 w-full border border-solid border-shade p-2 text-end text-sm text-dark"
-                        placeholder="رقم الحجز"
-                      />
-                    </div>
-                    <div className="flex flex-row gap-6 ">
-                      <div className="flex w-1/2 flex-col gap-3">
-                        <label className="text-end text-sm text-darkTint">
-                          {t("input:departure-date")}
-                        </label>
-                        <div className="flex h-12 justify-between border border-solid border-shade p-2">
-                          <i className="icon-calendar_today_black_24dp-3 font-xs flex cursor-pointer items-center px-2 text-xl text-dark"></i>
-                          <div className="flex items-center text-sm text-dark">
-                            يوليو 30 ,2021
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex w-1/2 flex-col gap-3">
-                        <label className="text-end text-sm text-darkTint">
-                          {t("input:date-of-arrival")}
-                        </label>
-                        <div className="flex h-12 justify-between border border-solid border-shade p-2">
-                          <i className="icon-calendar_today_black_24dp-3 font-xs flex cursor-pointer items-center px-2 text-xl text-dark"></i>
-                          <div className="flex items-center text-sm text-dark">
-                            يوليو 30 ,2021
-                          </div>
+                      <div className="flex h-12 justify-between border border-solid border-shade p-2">
+                        <i className="icon-calendar_today_black_24dp-3 font-xs flex cursor-pointer items-center px-2 text-xl text-dark"></i>
+                        <div className="flex items-center text-sm text-dark">
+                          يوليو 30 ,2021
                         </div>
                       </div>
                     </div>
-                    <Link passHref href={"/rating"}>
-                      <div className="flex h-12 cursor-pointer items-center justify-center bg-primary text-lg font-bold text-tint">
-                        {t("input:rate-stay")}
+                    <div className="flex w-1/2 flex-col gap-3">
+                      <label className="text-end text-sm text-darkTint">
+                        {t("input:date-of-arrival")}
+                      </label>
+                      <div className="flex h-12 justify-between border border-solid border-shade p-2">
+                        <i className="icon-calendar_today_black_24dp-3 font-xs flex cursor-pointer items-center px-2 text-xl text-dark"></i>
+                        <div className="flex items-center text-sm text-dark">
+                          يوليو 30 ,2021
+                        </div>
                       </div>
-                    </Link>
+                    </div>
                   </div>
-                  <div className="px-14 py-2 text-center text-xs text-darkTint">
-                    {t("input:rate-stay-description")}
-                  </div>
+                  <Link passHref href={"/rating"}>
+                    <div className="flex h-12 cursor-pointer items-center justify-center bg-primary text-lg font-bold text-tint">
+                      {t("input:rate-stay")}
+                    </div>
+                  </Link>
+                </div>
+                <div className="px-14 py-2 text-center text-xs text-darkTint">
+                  {t("input:rate-stay-description")}
                 </div>
               </div>
             </div>

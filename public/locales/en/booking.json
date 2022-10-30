@@ -1,0 +1,14 @@
+{
+    "booking-information":"Booking Information",
+    "tax":"VAT 15%",
+    "period":"Period",
+    "total":"Total",
+    "currency":"SAR",
+    "go-back":"review your reservation",
+    "next":"Next",
+    "booking-success":"Booking has been successful",
+    "booking-success-description":"The reservation has been successfully completed. You will receive a message with the reservation details and the date of the reservation",
+    "booking-success-btn":"Agree",
+    "host-information":"Guest Information"
+
+}

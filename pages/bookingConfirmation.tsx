@@ -1,9 +1,17 @@
 import React from "react";
 import Layout from "../components/Layout";
-import Link from "next/link";
 import SearchRoomCard from "../components/SearchRoomCard";
+import { useState } from "react";
+import type { GetStaticProps, NextPage } from "next";
+import Link from "next/link";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { SubmitHandler, useForm } from "react-hook-form";
+import nextI18NextConfig from "../i18n/next-i18next.config";
+import { useTranslation } from "next-i18next";
 
-const bookingConfirmation = () => {
+const BookingConfirmation: NextPage<{}> = () => {
+  const { t } = useTranslation(["home", "common", "booking"]);
+  const [paymentConfirmation, setPaymentConfirmation] = useState(false);
   return (
     <div className="relative h-full w-full">
       <Layout>
@@ -18,7 +26,7 @@ const bookingConfirmation = () => {
               <div className="h-full w-full lg:w-2/6 ">
                 <div className="relative flex w-full flex-col bg-tint px-4 shadow-lg">
                   <div className="flex w-full justify-end pt-4 text-2xl font-bold">
-                    معلومات الحجز{" "}
+                    {t("booking:booking-information")}
                   </div>
                   <div className="flex flex-row justify-end  gap-10 border-b border-solid border-b-shade py-4">
                     <div className="flex flex-col gap-2">
@@ -60,7 +68,7 @@ const bookingConfirmation = () => {
                   <div className="flex flex-row justify-between border-b border-solid border-b-shade py-4">
                     <div className="flex flex-col gap-4">
                       <div className="flex flex-row justify-start gap-1 text-sm font-bold text-dark">
-                        <span>ريال</span>
+                        <span> {t("booking:currency")}</span>
                         <div>121.74</div>
                       </div>
                       <div className="flex flex-row justify-start gap-1 text-sm font-bold text-dark">
@@ -77,10 +85,10 @@ const bookingConfirmation = () => {
                         غرفة لثلاث اشخاص
                       </div>
                       <div className="flex justify-end text-sm text-darkTint">
-                        ضريبة القيمة المضافة %15
+                        {t("booking:tax")}
                       </div>
                       <div className="flex justify-end text-sm text-darkTint">
-                        المدة
+                        {t("booking:period")}
                       </div>
                     </div>
                   </div>
@@ -94,7 +102,7 @@ const bookingConfirmation = () => {
                       </div>
                     </div>
                     <div className="flex items-center justify-end gap-1 text-sm font-bold text-dark">
-                      الإجمالي
+                      {t("booking:total")}
                     </div>
                   </div>
                 </div>
@@ -102,12 +110,12 @@ const bookingConfirmation = () => {
               <div className=" relative flex h-full w-full flex-col gap-8 lg:w-4/6 lg:gap-4">
                 <div className="relative flex w-full flex-col bg-tint px-4 shadow-lg">
                   <div className="flex w-full justify-end py-4 text-2xl font-bold">
-                    معلومات حجزك{" "}
+                    {t("booking:booking-information")}
                   </div>
                 </div>
                 <div className="relative flex w-full flex-col bg-tint px-4 shadow-lg">
                   <div className="flex w-full justify-end py-4 text-2xl font-bold">
-                    بيانات الضيف{" "}
+                    {t("booking:host-information")}
                   </div>
                   <div className="flex flex-row justify-end gap-10 lg:gap-32">
                     <div className="flex flex-row justify-end  gap-4 border-b border-solid border-b-shade py-4">
@@ -149,24 +157,72 @@ const bookingConfirmation = () => {
                   </div>
                 </div>
                 <div className="mb-24 flex h-16 w-full flex-row items-center justify-between bg-tint px-4 py-2 shadow-lg">
-                  <Link passHref href={"/bookingConfirmation"}>
-                    <div className="cursor-pointer bg-secondary px-12 py-2 text-tint">
-                      التالى
-                    </div>
-                  </Link>
+                  <button
+                    className="cursor-pointer bg-secondary px-12 py-2 text-tint"
+                    onClick={() => setPaymentConfirmation(true)}
+                  >
+                    {t("booking:next")}
+                  </button>
+
                   <Link passHref href={"/booking"}>
                     <div className="cursor-pointer bg-dark px-12 py-2 text-tint">
-                      راجع حجزك
+                      {t("booking:go-back")}
                     </div>
                   </Link>
                 </div>
               </div>
             </div>
           </div>
+          {paymentConfirmation ? (
+            <div className="fixed inset-0 z-40  h-full w-full">
+              <div className="fixed inset-0 z-40 flex h-full w-full flex-col items-center justify-center ">
+                <div
+                  className="fixed inset-0 z-40 h-full w-full bg-dark opacity-50 "
+                  onClick={() => setPaymentConfirmation(false)}
+                ></div>
+                <div className="h-112 fixed z-40 flex w-5/6 flex-col bg-tint  p-4 lg:w-2/5">
+                  <div className="flex flex-row items-center justify-start">
+                    <i
+                      className={` icon-close_black_24dp cursor-pointer text-xl  text-dark `}
+                      onClick={() => setPaymentConfirmation(false)}
+                    />
+                  </div>
+                  <div className="flex flex-col  items-center space-y-8">
+                    <div className="flex flex-col items-center space-y-6">
+                      <p className="text-3xl font-semibold text-dark">
+                        {t("booking:booking-success")}
+                      </p>
+                      <p className="font-semibold text-xs text-center text-dark">
+                        {t("booking:booking-success-description")}{" "}
+                      </p>
+                    </div>
+                    <Link href="/">
+                      <div className="flex h-10 w-48 cursor-pointer items-center justify-center bg-primary">
+                        <h1 className="text-xl font-bold text-tint">
+                          {" "}
+                          {t("booking:booking-success-btn")}
+                        </h1>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : null}
         </div>
       </Layout>
     </div>
   );
 };
-
-export default bookingConfirmation;
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(
+        context.locale as string,
+        ["home", "common", "booking"],
+        nextI18NextConfig
+      )),
+    },
+  };
+};
+export default BookingConfirmation;
